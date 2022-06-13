@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 15_Ranking
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Standalone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 6f90477e6c20d42e3a8509f7ec501dbe, type: 3}
+    totalSpriteSurfaceArea: 328238
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 05253e00886b7424d9adb712bdbad1ea, type: 3}
+  - {fileID: 21300000, guid: dc616340029fe46f488deb0845bf7a59, type: 3}
+  - {fileID: 21300000, guid: 6b51ac1110d5b41f1acd92980d67c136, type: 3}
+  - {fileID: 21300000, guid: 0a3c7831f14ed4e5ab5c908b8da1a86a, type: 3}
+  - {fileID: 21300000, guid: 2a992c71d9f0f4636977c9f7a496d2f3, type: 3}
+  - {fileID: 21300000, guid: c3dacda38a7834a39b60426fdd2512e3, type: 3}
+  - {fileID: 21300000, guid: 87f1f2f542bc344849ea7993d44631b4, type: 3}
+  - {fileID: 21300000, guid: 393873b61b7084049b4be33aa144910e, type: 3}
+  - {fileID: 21300000, guid: 579464587538a4c8eaa59e65099f9030, type: 3}
+  - {fileID: 21300000, guid: bb320e8984d36432cbefeb9422ff2e6b, type: 3}
+  - {fileID: 21300000, guid: b975e60a17e944d3b9fd910b31d3bde0, type: 3}
+  - {fileID: 21300000, guid: 0ee67a1a648dc4b2fbc77f39591a6307, type: 3}
+  - {fileID: 21300000, guid: 017b1cea47f53470186727a12459c512, type: 3}
+  - {fileID: 21300000, guid: 2ac3bf7cc025a47b5b1822d5cc76be38, type: 3}
+  - {fileID: 21300000, guid: 0629731d8104a40c2bfcf703783bb720, type: 3}
+  - {fileID: 21300000, guid: 597a106ebeb1e4494839bbb89b6ba779, type: 3}
+  - {fileID: 21300000, guid: aa3bf79e6032d41bc85809ca4d518dec, type: 3}
+  - {fileID: 21300000, guid: 06cea55f7f045402f8ea9eacb9924fa5, type: 3}
+  - {fileID: 21300000, guid: 3c9a9bcf737e949cb935b072ad2ab868, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - common_popup_title_03
+  - icon_rank_bz
+  - common_btn_color_blue
+  - common_popup_title_00
+  - icon_rank_sv
+  - message_avatar_frame
+  - mission_btn_icon_soulgem
+  - ranking_list_me_0
+  - popup_bg
+  - common_popup_title_02
+  - common_shadow_bottom
+  - icon_rank_gd
+  - message_avatar_empty
+  - message_avatar_user
+  - common_popup_title_01
+  - message_avatar_monster
+  - popup_btn_close
+  - icon_rank_default
+  - btn_solid_black_0
+  m_Tag: 15_Ranking
+  m_IsVariant: 0

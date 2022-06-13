@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 04_Stage_Ready
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Standalone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 7f2c9fc19b15f4142a9aa07de10b7702, type: 3}
+    totalSpriteSurfaceArea: 349127
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: aae621a159b964dc5bb522204f812aac, type: 3}
+  - {fileID: 21300000, guid: c9fba8c280b90475b854cb45d6c49fcd, type: 3}
+  - {fileID: 21300000, guid: c5df0393b370e4645ae91c1c9b380c39, type: 3}
+  - {fileID: 21300000, guid: a0d88bc6ebdef4e688b9cb713a656320, type: 3}
+  - {fileID: 21300000, guid: e3b06a27e23b64faa94909ebb53b7a8a, type: 3}
+  - {fileID: 21300000, guid: 73b4b787a0e16426ea53b857fc8c7640, type: 3}
+  - {fileID: 21300000, guid: b42fdb99c65f34989a1f0dc461ef14c2, type: 3}
+  - {fileID: 21300000, guid: e3c64caa1bb854ff58aba5cc9a008834, type: 3}
+  - {fileID: 21300000, guid: 5477cb2b1a4ff49b7a0789c18b27afac, type: 3}
+  - {fileID: 21300000, guid: 6de0f13b53baf4de0a5f9adaea79f0b2, type: 3}
+  - {fileID: 21300000, guid: 877c3deb81ebc4cc98fcf86bf6f3a43c, type: 3}
+  - {fileID: 21300000, guid: 9aa998fba59464e61be447b64d861afc, type: 3}
+  - {fileID: 21300000, guid: b619216c643a445f4a146abc958124b7, type: 3}
+  - {fileID: 21300000, guid: 49084f5d97e6347428504c9bbd216abf, type: 3}
+  - {fileID: 21300000, guid: e95b879e3c9484dd1aa99d086c11ee92, type: 3}
+  - {fileID: 21300000, guid: 65bd092fe89074fe681bdefbb8351250, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - stage_ready_item_count_bg_white
+  - label_orange_0
+  - popup_btn_close
+  - item_select_check
+  - popup_bg
+  - stage_ready_item_potion_red
+  - stage_ready_item_timer
+  - stage_ready_item_count_bg
+  - common_popup_title_01
+  - common_popup_title_00
+  - mission_detail_bg_white
+  - stage_ready_item_sword_A
+  - common_popup_title_03
+  - mission_detail_bg_0
+  - common_btn_color_blue
+  - common_popup_title_02
+  m_Tag: 04_Stage_Ready
+  m_IsVariant: 0

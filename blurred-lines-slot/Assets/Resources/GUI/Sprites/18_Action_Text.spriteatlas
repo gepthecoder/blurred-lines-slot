@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 18_Action_Text
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Standalone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 980f57fe3be3c4ce08011b0140a81bce, type: 3}
+    totalSpriteSurfaceArea: 626761
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: abb069e0b06c14037af70e4560953989, type: 3}
+  - {fileID: 21300000, guid: d017eee2175e1427699c9238df59de50, type: 3}
+  - {fileID: 21300000, guid: 67217614ed1134ea88e5f5dbba737e2d, type: 3}
+  - {fileID: 21300000, guid: 48fe6c94537e849508eddeec5fc59eac, type: 3}
+  - {fileID: 21300000, guid: ef1b9e76948914f1d8c28d9b65d3c210, type: 3}
+  - {fileID: 21300000, guid: 62e8653778e13431a8c384de9044c20b, type: 3}
+  - {fileID: 21300000, guid: 13b8e367cc6974735b653ae53ebe0a8b, type: 3}
+  - {fileID: 21300000, guid: 28a3f9188654c40b48be1087fc7d19eb, type: 3}
+  - {fileID: 21300000, guid: b8578a788b7be4467a1534e386bede56, type: 3}
+  - {fileID: 21300000, guid: 893bcf2b47ad242189851bc717438f84, type: 3}
+  - {fileID: 21300000, guid: 2800216b29cd14e52a956236743a7665, type: 3}
+  - {fileID: 21300000, guid: 6513535c556cb40c8b9f68ff9bb710af, type: 3}
+  - {fileID: 21300000, guid: 49d0763e71713479c8a62dda58befcc6, type: 3}
+  - {fileID: 21300000, guid: 141aae4e5e6c04bbfacb7f5d36fe8878, type: 3}
+  - {fileID: 21300000, guid: 4898cd8e925ee40bb9d057d5bf260906, type: 3}
+  - {fileID: 21300000, guid: ddb3779e89687427ab477d3f76f94331, type: 3}
+  - {fileID: 21300000, guid: 63089ceebbc2942c5b8ddb2c24510a70, type: 3}
+  - {fileID: 21300000, guid: ef110f2fc9daa4d819de848f1989d923, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - txt_complete
+  - txt_combo
+  - txt_good
+  - txt_great
+  - txt_start
+  - txt_nice
+  - txt_defeat
+  - txt_victory
+  - txt_go
+  - txt_mission_clear
+  - txt_awesome
+  - txt_lose
+  - txt_levelup
+  - txt_wow
+  - txt_ready
+  - txt_bonustime
+  - txt_win
+  - txt_gameover
+  m_Tag: 18_Action_Text
+  m_IsVariant: 0

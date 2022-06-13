@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 07_Mission
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Standalone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: e2c5bd57daf1c4c37bb4c3c12c021961, type: 3}
+    totalSpriteSurfaceArea: 432933
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 78a3ca90513e94647baac96d54f37f6b, type: 3}
+  - {fileID: 21300000, guid: 9b6d5eb076eac416282a0981c2aa06ef, type: 3}
+  - {fileID: 21300000, guid: 1ce2a7d1891374f698d78fd73cf3c145, type: 3}
+  - {fileID: 21300000, guid: 98396872d85464da383eeebe0815ea12, type: 3}
+  - {fileID: 21300000, guid: c99634f2b238d440b9b16c06abed4347, type: 3}
+  - {fileID: 21300000, guid: 6e3e21f3ac4be4712b947058c2093a9a, type: 3}
+  - {fileID: 21300000, guid: 0bed112586cec49ba8fcc1dd5aa8a0fa, type: 3}
+  - {fileID: 21300000, guid: 33ff4c25793e24cd4a08e46134c2ef4d, type: 3}
+  - {fileID: 21300000, guid: 2387cf557b8d140fa95cbc035c490969, type: 3}
+  - {fileID: 21300000, guid: 7e30376514d7c44acbc0f231178e446a, type: 3}
+  - {fileID: 21300000, guid: fb810ef6393e3436d88c863767803fae, type: 3}
+  - {fileID: 21300000, guid: 7785ca17d1d49433b875c864680fd3ab, type: 3}
+  - {fileID: 21300000, guid: eddd72275407745a69e3456a03a9c1fb, type: 3}
+  - {fileID: 21300000, guid: 8d2bb4e76daaa45829b6d2eea25a660c, type: 3}
+  - {fileID: 21300000, guid: 963fc04805d4f4a18ad4e5232cbb49e4, type: 3}
+  - {fileID: 21300000, guid: b95e01784806942b0ac5219072538f1f, type: 3}
+  - {fileID: 21300000, guid: 2bedb978398204f2fa3766e162cd0aeb, type: 3}
+  - {fileID: 21300000, guid: af3e30c8d1a3f434db6351be30df9ce3, type: 3}
+  - {fileID: 21300000, guid: 88e3a26976dc04f8ea77493932623ea2, type: 3}
+  - {fileID: 21300000, guid: 5ae4dda9e8452412f8e86f2b21b8944e, type: 3}
+  - {fileID: 21300000, guid: fadf3f1add8224178a16fbceda1f8069, type: 3}
+  - {fileID: 21300000, guid: 8f8011eabda7d4a88bd345d07ad216e4, type: 3}
+  - {fileID: 21300000, guid: f5c1092cc0af44777bfd1d8e7dc8fa50, type: 3}
+  - {fileID: 21300000, guid: 13620ebcffbd34101bcb0dae2f5f59da, type: 3}
+  - {fileID: 21300000, guid: c65d15ecfbc6743268126c2d1fe9684b, type: 3}
+  - {fileID: 21300000, guid: 1d3a6f2d5f11b4eb5a16c632c2e98799, type: 3}
+  - {fileID: 21300000, guid: 8f5e276e420954258bd022cc99bc64e2, type: 3}
+  - {fileID: 21300000, guid: 5a71f39fa836f458fb2a5b5f3454f888, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - mission_btn_icon_gem
+  - mission_img_kill
+  - common_popup_title_00
+  - mission_clear_star_bg
+  - mission_img_crown
+  - mission_btn_icon_coin
+  - common_gage_bg_0
+  - common_shadow_bottom
+  - common_btn_complete_check
+  - mission_btn_icon_soulgem
+  - common_popup_title_03
+  - common_popup_title_01
+  - popup_btn_close
+  - common_gage_brown_0
+  - mission_img_key
+  - popup_bg
+  - common_btn_color_green
+  - common_btn_color_brown
+  - mission_frame_brown
+  - common_gage_orange_0
+  - mission_img_goal
+  - btn_solid_black_0
+  - mission_frame_green
+  - common_popup_title_02
+  - mission_clear_star_bg_white
+  - mission_clear_star
+  - mission_img_collect
+  - mission_frame_silver
+  m_Tag: 07_Mission
+  m_IsVariant: 0

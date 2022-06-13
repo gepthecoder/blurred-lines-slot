@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 13_Language
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Standalone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 2780fe9c376ea4520b7401bff3b4ad54, type: 3}
+    totalSpriteSurfaceArea: 329636
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: c253141116dca4a5a9a8991838831a3f, type: 3}
+  - {fileID: 21300000, guid: 82b0d7526bc104423950347a39c211aa, type: 3}
+  - {fileID: 21300000, guid: 09ede834c69ca4bb188be59889859ccc, type: 3}
+  - {fileID: 21300000, guid: 4b47b6250f3b949a7b8b5ed13617c25c, type: 3}
+  - {fileID: 21300000, guid: f9ac8d656993046c2bae8b1627b0d145, type: 3}
+  - {fileID: 21300000, guid: 7274bb95c97e94a998f809fa699b65ac, type: 3}
+  - {fileID: 21300000, guid: 05416cc56bd2a4ede84891612b248887, type: 3}
+  - {fileID: 21300000, guid: 733c5fc5a2c1f47b495fbf4913fa0cb7, type: 3}
+  - {fileID: 21300000, guid: d9be2be5506ed4442add30be4e24b547, type: 3}
+  - {fileID: 21300000, guid: 4388bd563313043e4b5cfddf8613614d, type: 3}
+  - {fileID: 21300000, guid: 3e5a40784ff184bcf8601574da9349b6, type: 3}
+  - {fileID: 21300000, guid: 4e2b69ea94c204a988adf6bb36fb843e, type: 3}
+  - {fileID: 21300000, guid: 8750a03d0cee04cb7bd86b53b3e08ac2, type: 3}
+  - {fileID: 21300000, guid: 1d037a4df63b94ac5afa2ba5f49b945c, type: 3}
+  - {fileID: 21300000, guid: 7d1c5b9e1880e41ed88e478a7098e440, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - language_fra
+  - language_jpn
+  - language_deu
+  - language_twn
+  - language_icon_check
+  - popup_btn_close
+  - language_tur
+  - language_chn
+  - language_eng
+  - language_prt
+  - popup_bg
+  - language_esp
+  - language_kor
+  - language_ind
+  - language_rus
+  m_Tag: 13_Language
+  m_IsVariant: 0

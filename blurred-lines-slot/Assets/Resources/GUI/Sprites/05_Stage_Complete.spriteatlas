@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 05_Stage_Complete
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Standalone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 13062c6ee2a204040a33e377bba1a5f3, type: 3}
+    totalSpriteSurfaceArea: 829196
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 121d64f0e72704834b5f1fbbb95a8005, type: 3}
+  - {fileID: 21300000, guid: 406aef01782784fafadcd35cac8cebd4, type: 3}
+  - {fileID: 21300000, guid: 4a0b0541a7e1240e0bfba87e7c73a403, type: 3}
+  - {fileID: 21300000, guid: 70a854518a76845a0a61a99a9f8d378d, type: 3}
+  - {fileID: 21300000, guid: b55d1ec1bd696493fa0829a1573423e8, type: 3}
+  - {fileID: 21300000, guid: 55bd5cf1d1e624b5aa92c303125bd5cc, type: 3}
+  - {fileID: 21300000, guid: 977ff4128988e49b299d08ebeaf6d992, type: 3}
+  - {fileID: 21300000, guid: 6471a61214608430ab45317eb36d61b9, type: 3}
+  - {fileID: 21300000, guid: 0094e3725e375433fa8e6d3019a30d6a, type: 3}
+  - {fileID: 21300000, guid: 44acb0a236f924d14afe3a9f7e5f87f2, type: 3}
+  - {fileID: 21300000, guid: 4c5cec3345d2c41e9a92c0efc8746cce, type: 3}
+  - {fileID: 21300000, guid: 6a90e8933d6294fcda6454d5dd2a4cad, type: 3}
+  - {fileID: 21300000, guid: e0eaa9e4258c74cf6a447b1e27561562, type: 3}
+  - {fileID: 21300000, guid: 79eacae4dc2b942b2ae0eb8773bc0dbe, type: 3}
+  - {fileID: 21300000, guid: 34e58fe5935634f63a4f6b9b008adcc1, type: 3}
+  - {fileID: 21300000, guid: d6fdb146048474bec94d563d8de9f8af, type: 3}
+  - {fileID: 21300000, guid: 05c5fab6da7ac4759aa3fd3dd9b066cf, type: 3}
+  - {fileID: 21300000, guid: 9737a2a705e704bc3975d62499965d2e, type: 3}
+  - {fileID: 21300000, guid: 6cd2e4f7622ab468686a5d750551e633, type: 3}
+  - {fileID: 21300000, guid: 20414e9824c674f98be9932cc5a94a22, type: 3}
+  - {fileID: 21300000, guid: b3d7ba0a55f5d4ea092d33aedde63d32, type: 3}
+  - {fileID: 21300000, guid: 2b1ca0ba6c534442c876f9ad5b985876, type: 3}
+  - {fileID: 21300000, guid: 64bb89dab8f884a8195030c8106b84f0, type: 3}
+  - {fileID: 21300000, guid: 4e7b106b62861481087caa55fec909e1, type: 3}
+  - {fileID: 21300000, guid: f209d6eb7f3504182b0b1fe14316f4f2, type: 3}
+  - {fileID: 21300000, guid: 34aeb22c6ca914b0d834cea427e827e4, type: 3}
+  - {fileID: 21300000, guid: c887142c8bb25429abe067562d4dc651, type: 3}
+  - {fileID: 21300000, guid: deba084c81ff1483484802e1cc3e21a6, type: 3}
+  - {fileID: 21300000, guid: cc96ae0dba26c4799a55f2d9d261aff0, type: 3}
+  - {fileID: 21300000, guid: 8a57a0fda236b4c908fe9998d924aacb, type: 3}
+  - {fileID: 21300000, guid: 6dfc483e33354476fa0d6f22551fd419, type: 3}
+  - {fileID: 21300000, guid: 609073ce9ae14413fa26fd9146d45e12, type: 3}
+  - {fileID: 21300000, guid: ffe7523fb84f34effb77d9337bf10ea8, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - particle_rainbow_07
+  - ribbon_back_shadow_green
+  - particle_rainbow_08
+  - complete_star_bg
+  - common_btn_color_brown_0
+  - particle_rainbow_04
+  - complete_crown
+  - ribbon_deco_laurel_r
+  - ribbon_deco_laurel_l
+  - ribbon_back_shadow_white
+  - particle_rainbow_10
+  - complete_get_bg_white_0
+  - common_ribbon_green_0
+  - bottom_icon_restart
+  - particle_rainbow_02
+  - popup_btn_close
+  - particle_rainbow_01
+  - particle_rainbow_03
+  - complete_star
+  - bottom_icon_home
+  - complete_clover
+  - common_btn_color_blue
+  - complete_horner
+  - particle_rainbow_06
+  - particle_rainbow_05
+  - common_btn_color_green_0
+  - particle_rainbow_09
+  - complete_star_bg_white
+  - bottom_icon_resume
+  - popup_bg
+  - complete_get_bg
+  - complete_coin
+  - label_brown_0
+  m_Tag: 05_Stage_Complete
+  m_IsVariant: 0

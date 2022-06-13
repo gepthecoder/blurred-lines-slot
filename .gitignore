@@ -42,12 +42,14 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+*.psd
 
 #Additional
 *.meta
 *blurred-lines-slot/Library
 *blurred-lines-slot/obj/Debug
 *blurred-lines-slot/Temp
+*blurred-lines-slot/Logs
 
 # Unity3D generated meta files
 *.pidb.meta

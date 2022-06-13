@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 14_Pause
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Standalone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 10387b6f2983d4aa08e16f1e950a3a90, type: 3}
+    totalSpriteSurfaceArea: 84950
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 226432525e79c45f4ba479ec3ecb1863, type: 3}
+  - {fileID: 21300000, guid: ef63b5a2bd8e4445495feb2d94e3cf10, type: 3}
+  - {fileID: 21300000, guid: ace1d2c2482a744eeb4aa8d933e47e4a, type: 3}
+  - {fileID: 21300000, guid: 9a3fbca588bd3484b85c52c8b6d8d308, type: 3}
+  - {fileID: 21300000, guid: ad0f2fb5b09e14400b78b577d8ea8911, type: 3}
+  - {fileID: 21300000, guid: a8199736a2fab4fbab2e75e23ddb5ab7, type: 3}
+  - {fileID: 21300000, guid: 1d5fd619bdbc247bc8f1b0c5d2fa895f, type: 3}
+  - {fileID: 21300000, guid: 9dfa30ea2230e4dcb9fa71027650021b, type: 3}
+  - {fileID: 21300000, guid: b0c46b7ed73be48428f6323fb6fe3f29, type: 3}
+  - {fileID: 21300000, guid: be3ac02fd8ab84ef596cd44be359c86f, type: 3}
+  - {fileID: 21300000, guid: 1cc7b76ffc8cf49198080ed9652de02c, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - btn_icon_exit
+  - pause_deco_line_l_white
+  - pause_bg
+  - pause_deco_line_r_white
+  - common_btn_color_green_0
+  - pause_deco_line_l_0
+  - btn_icon_resume
+  - common_btn_color_blue_0
+  - pause_deco_line_r
+  - common_btn_color_brown_0
+  - btn_icon_restart
+  m_Tag: 14_Pause
+  m_IsVariant: 0

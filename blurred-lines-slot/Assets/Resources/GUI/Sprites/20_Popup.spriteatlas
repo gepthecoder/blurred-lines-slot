@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 20_Popup
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Standalone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 93717e356d96e4c89b54ab226aa0bed5, type: 3}
+    totalSpriteSurfaceArea: 263515
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: f237d0f07b95c471d94f0441509e9694, type: 3}
+  - {fileID: 21300000, guid: e3dabf81b9ab146a6926edc8dbacd682, type: 3}
+  - {fileID: 21300000, guid: 39c20963bd97b40aeb082816a0f50b15, type: 3}
+  - {fileID: 21300000, guid: cbb338b33765f40d2b04b54d803786bd, type: 3}
+  - {fileID: 21300000, guid: 4ae72fd7221c74755a78e65015891d5a, type: 3}
+  - {fileID: 21300000, guid: 9af0cd9b98fb440d6978dc1275a882ff, type: 3}
+  - {fileID: 21300000, guid: d5b3b80cc63d2465982718de16b4ac86, type: 3}
+  - {fileID: 21300000, guid: f139613dc3ca24233a05524c5162cdd8, type: 3}
+  - {fileID: 21300000, guid: 9f50362e3fa90440b8caef63181d40de, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - common_popup_title_03
+  - popup_btn_close
+  - common_popup_title_01
+  - common_btn_color_green
+  - common_popup_title_00
+  - common_popup_title_02
+  - popup_bg
+  - common_btn_color_blue
+  - common_btn_color_brown_0
+  m_Tag: 20_Popup
+  m_IsVariant: 0

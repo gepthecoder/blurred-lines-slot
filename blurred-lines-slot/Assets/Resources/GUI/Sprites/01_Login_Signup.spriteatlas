@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 01_Login_Signup
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Standalone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: cae3327faca97490d866e6b118c26533, type: 3}
+    totalSpriteSurfaceArea: 251542
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 05635dc0b2e38494a8926bc193d12085, type: 3}
+  - {fileID: 21300000, guid: 400f030195d9943f3b42839c0ce1cf2b, type: 3}
+  - {fileID: 21300000, guid: 638ccc342b0db4c338682f021c3669aa, type: 3}
+  - {fileID: 21300000, guid: 60df72c46139441f68c8b3a74f5f294c, type: 3}
+  - {fileID: 21300000, guid: a0c03645568464f57b0099e1cfd00863, type: 3}
+  - {fileID: 21300000, guid: 12b2ac95fd5f9401ca0069c759efe3fd, type: 3}
+  - {fileID: 21300000, guid: 02ab72d5275a04cbeb24a66542e31aec, type: 3}
+  - {fileID: 21300000, guid: b66b96c6acb4f456898d981f7bc06784, type: 3}
+  - {fileID: 21300000, guid: bd8d9d1883d6b4465bbe7b4ad0621d4e, type: 3}
+  - {fileID: 21300000, guid: 9b58d448632134a7e8d50af9f812d515, type: 3}
+  - {fileID: 21300000, guid: 3ffbefa85685249358b4d772ef085bd0, type: 3}
+  - {fileID: 21300000, guid: e710278932b0a46599e4dea4e3619022, type: 3}
+  - {fileID: 21300000, guid: c7119fc90c1724cd38f022c7a9ad1caa, type: 3}
+  - {fileID: 21300000, guid: 6425ab2ab0c7348b4b2969857efd4b9d, type: 3}
+  - {fileID: 21300000, guid: 0f58845ae0b374e52b7ad64ce0dcf059, type: 3}
+  - {fileID: 21300000, guid: fc8a79fa197ac497b9eb57971ec95618, type: 3}
+  - {fileID: 21300000, guid: e892df9b155064436a7bc203e7db04b6, type: 3}
+  - {fileID: 21300000, guid: 43d96aab8b4ed442395aafb1e721ccd0, type: 3}
+  - {fileID: 21300000, guid: 930f2dbb6cb074a14ac355589a46a6b2, type: 3}
+  - {fileID: 21300000, guid: 7bd07e8f1868e45de8b50e46fa687e08, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - popup_bg_0
+  - txt_field_error_0
+  - txt_field_normal_0
+  - check_off_tiny
+  - txt_field_ic_pw
+  - txt_field_ic_error
+  - common_popup_title_00_0
+  - popup_btn_close
+  - Required_circle
+  - common_popup_title_01
+  - txt_field_typing_0
+  - txt_field_ic_user
+  - common_popup_title_03
+  - txt_field_ic_error_white
+  - Required_circle_white
+  - check_on_tiny
+  - common_popup_title_02
+  - txt_field_hint_0
+  - txt_field_ic_email
+  - common_btn_color_blue_0
+  m_Tag: 01_Login_Signup
+  m_IsVariant: 0

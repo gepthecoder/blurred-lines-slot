@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 04_Lock_Fail_Lose
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Standalone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: aea10a381f9de4b76a88575a5ef7e915, type: 3}
+    totalSpriteSurfaceArea: 840590
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 0dfed5604c2c34ea9a19864f0c2674ee, type: 3}
+  - {fileID: 21300000, guid: 8e2e9c701a6c44fb08a48da4dc8c4618, type: 3}
+  - {fileID: 21300000, guid: fe5f9801809014030a5f78696df51a59, type: 3}
+  - {fileID: 21300000, guid: 37ee17916a23b42cb8422b62436bccff, type: 3}
+  - {fileID: 21300000, guid: fb5dfd24fafe94f029f118eceac39a86, type: 3}
+  - {fileID: 21300000, guid: 637832b467e364e6395abe1525589742, type: 3}
+  - {fileID: 21300000, guid: f41535b58b3014601b2338de5c554be1, type: 3}
+  - {fileID: 21300000, guid: 2e5454170c5a44e2faf404b59c8415ef, type: 3}
+  - {fileID: 21300000, guid: 9cb3f529d717946eb9cd346c284aa7b2, type: 3}
+  - {fileID: 21300000, guid: a7bcb949b6972411294d5d0b3ce72033, type: 3}
+  - {fileID: 21300000, guid: b0284df90c4cd466b90c93eaf9599941, type: 3}
+  - {fileID: 21300000, guid: 67a8387a5cad44016803e17dd307633c, type: 3}
+  - {fileID: 21300000, guid: 6164358a7def74701b15fd6bcc7d93ad, type: 3}
+  - {fileID: 21300000, guid: 4a9d3e4b8da974cd19a4ace25bb5f12e, type: 3}
+  - {fileID: 21300000, guid: 3fd6285bbc71745e1a82388edc842051, type: 3}
+  - {fileID: 21300000, guid: 1a4759ab4651d4d8d89b5d2afbb1b337, type: 3}
+  - {fileID: 21300000, guid: c7172f0c1084144bc937b9fd6bb12fa7, type: 3}
+  - {fileID: 21300000, guid: 09a47d6c13edc4e4aa27a04044976d39, type: 3}
+  - {fileID: 21300000, guid: 9673c1fd07ff94b26984043e27f26217, type: 3}
+  - {fileID: 21300000, guid: 93cbc0cfce8f8468d848fe33a333f14f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - bottom_icon_restart
+  - common_btn_color_brown
+  - defeat_deco_03
+  - bottom_icon_home
+  - common_btn_color_blue
+  - complete_get_bg
+  - defeat_ic_skull
+  - popup_btn_close
+  - ribbon_back_shadow_brown
+  - complete_get_bg_white
+  - ic_lock
+  - popup_icon_bg
+  - defeat_deco_02
+  - defeat_deco_01
+  - popup_icon_bg_white
+  - popup_bg
+  - complete_coin
+  - label_brown
+  - common_ribbon_brown_0
+  - ribbon_back_shadow_white
+  m_Tag: 04_Lock_Fail_Lose
+  m_IsVariant: 0

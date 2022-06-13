@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 06_Level_Up
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Standalone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 053c48f76113a49d0bb7022e9df93c7b, type: 3}
+    totalSpriteSurfaceArea: 4479984
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 7ac07f502a4f948e7bfde2d69285df51, type: 3}
+  - {fileID: 21300000, guid: 243a01609d1b0426eb9cabc02deeea2a, type: 3}
+  - {fileID: 21300000, guid: a19be6f051d954467869ef0b5e94595f, type: 3}
+  - {fileID: 21300000, guid: ee3a2111b8d564d86b5acc30c0e0a868, type: 3}
+  - {fileID: 21300000, guid: 8d29a851b49f84ae1b85b922436b0339, type: 3}
+  - {fileID: 21300000, guid: 9766f9c1e80b946778dbd32155923fcf, type: 3}
+  - {fileID: 21300000, guid: 75e6ded2ef4ae4a7584103e78023b6d4, type: 3}
+  - {fileID: 21300000, guid: e213eb93fa22d40af984dc6cdfc5f8c6, type: 3}
+  - {fileID: 21300000, guid: 7d0f94c42f0ef4a64945326f31f1ffaa, type: 3}
+  - {fileID: 21300000, guid: d1d8e42576af3418197026975308b1e9, type: 3}
+  - {fileID: 21300000, guid: 87d98d46a1cf04ba18b0c1f5d580bc7c, type: 3}
+  - {fileID: 21300000, guid: cf3b10b8eb03448d699575a33c0e81a9, type: 3}
+  - {fileID: 21300000, guid: e8fd96d8f45be40a491b2d91faca51ce, type: 3}
+  - {fileID: 21300000, guid: 9ba42b59856ea4ced8e2dfe63fa2f054, type: 3}
+  - {fileID: 21300000, guid: 9db42a0a756384a93ab6de58cce6d6f0, type: 3}
+  - {fileID: 21300000, guid: 82b9478a250954d3981e7749934fc7f9, type: 3}
+  - {fileID: 21300000, guid: 792524cace40844f7b01c062c923564c, type: 3}
+  - {fileID: 21300000, guid: 80e9e42b361a3468c9da56175f5cd226, type: 3}
+  - {fileID: 21300000, guid: ef6e537b26f6d4571903fa2a72bf1341, type: 3}
+  - {fileID: 21300000, guid: 675be2fd1780d4464b82939aa1a3bcf4, type: 3}
+  - {fileID: 21300000, guid: 337d065e67b3c48408cd72487d547c34, type: 3}
+  - {fileID: 21300000, guid: 4c7dc7bec847f4837a216f962df25c6a, type: 3}
+  - {fileID: 21300000, guid: 93a852ce8464842e4bd5578465d2a1df, type: 3}
+  - {fileID: 21300000, guid: 5411f25f6e8d744819df85474656eb41, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - levelup_item_talaria
+  - levelup_particle_02
+  - levelup_bg_01
+  - levelup_particle_06
+  - levelup_bg_02
+  - levelup_particle_05
+  - levelup_bg_06
+  - levelup_unlocked_title_0
+  - levelup_bg_04
+  - common_ribbon_green
+  - levelup_item_sandglass
+  - levelup_bg_03
+  - levelup_particle_01
+  - levelup_particle_04
+  - popup_btn_close
+  - levelup_bg_05
+  - levelup_deco_laurel_l
+  - common_background
+  - levelup_deco_laurel_r
+  - levelup_grow_white
+  - levelup_effect_rotate_white
+  - levelup_item_hammer
+  - txt_levelup
+  - levelup_particle_03
+  m_Tag: 06_Level_Up
+  m_IsVariant: 0

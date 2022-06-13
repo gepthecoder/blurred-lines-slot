@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 06_LuckyBox
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Standalone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: ec8d40ec9da86406088d4c6e9eaea2cb, type: 3}
+    totalSpriteSurfaceArea: 2515090
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: e50fd541fa08d445fa934718a812648d, type: 3}
+  - {fileID: 21300000, guid: 0e286832fff43464fad880f14f4140e9, type: 3}
+  - {fileID: 21300000, guid: 435ac663111bf41979d9898411a71957, type: 3}
+  - {fileID: 21300000, guid: 8fafbb63bfe3e4216bdce434f46f1282, type: 3}
+  - {fileID: 21300000, guid: 75646df37c90342aa9d861c1a8834922, type: 3}
+  - {fileID: 21300000, guid: 09636154a79e64af38a7e47477839e58, type: 3}
+  - {fileID: 21300000, guid: 03221ea44d78f498cbe956324de3efc9, type: 3}
+  - {fileID: 21300000, guid: f99bc345cb4d841b38837dc7313315a0, type: 3}
+  - {fileID: 21300000, guid: c266a686ce1a34ad2b7a0910d7938360, type: 3}
+  - {fileID: 21300000, guid: 70f34ce9658004e2b998eba3db4c2d7a, type: 3}
+  - {fileID: 21300000, guid: d915d29cc37d24b6c869510f0c847e43, type: 3}
+  - {fileID: 21300000, guid: 76656bbcbcd6d4f58b8f1a1adad46bfc, type: 3}
+  - {fileID: 21300000, guid: a6f87e2ebf96f423297039a83f374dcc, type: 3}
+  - {fileID: 21300000, guid: d3aa2b9fee1664803b300a41e0cb223e, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - levelup_particle_01
+  - levelup_particle_05
+  - popup_btn_close
+  - luckybox_bronze
+  - luckybox_gold
+  - common_ribbon_green
+  - levelup_particle_04
+  - luckybox_platinum
+  - levelup_grow_white
+  - levelup_particle_02
+  - levelup_particle_03
+  - luckybox_diamond
+  - levelup_effect_rotate_white
+  - luckybox_silver
+  m_Tag: 06_LuckyBox
+  m_IsVariant: 0

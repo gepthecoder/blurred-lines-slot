@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 11_Item
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Standalone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 332ec2ae6a83a43b7a51483029f58154, type: 3}
+    totalSpriteSurfaceArea: 477350
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 82e848d0c4c694e15af23973a5eff945, type: 3}
+  - {fileID: 21300000, guid: f2fad3e0e4efc4b729bc409431b8b79a, type: 3}
+  - {fileID: 21300000, guid: 627b6cf0535074e2c8c539aceb2f73c3, type: 3}
+  - {fileID: 21300000, guid: ade56b7149c6940ecbc3fe38cd065543, type: 3}
+  - {fileID: 21300000, guid: c2bdd4b29e21a43c296e7d7c09e5752a, type: 3}
+  - {fileID: 21300000, guid: 6cf6c1d222bd04c84bfc2ebfabdf2367, type: 3}
+  - {fileID: 21300000, guid: 91d27e33d3fe6413ca5ee30d57986ebd, type: 3}
+  - {fileID: 21300000, guid: 667b1de3b35e94b4b95a718f6222f76a, type: 3}
+  - {fileID: 21300000, guid: a67aa39465a494124bcb9001c973ba40, type: 3}
+  - {fileID: 21300000, guid: bb9f37b5506c347fbb096976d07d19a0, type: 3}
+  - {fileID: 21300000, guid: 238c5317455e84a38b1946556d3eb95e, type: 3}
+  - {fileID: 21300000, guid: 85d44e09459c1451bae20da619538a01, type: 3}
+  - {fileID: 21300000, guid: e0f680a9f562448749fb02527d942ff2, type: 3}
+  - {fileID: 21300000, guid: 0405d85a6e43d4325a6d03d9ed54f17c, type: 3}
+  - {fileID: 21300000, guid: 577695daf5df844ea8b2cd417b90428d, type: 3}
+  - {fileID: 21300000, guid: d167d05bf5c7743c1a24dd6d6486bd31, type: 3}
+  - {fileID: 21300000, guid: 3c05b77c2f50840e0b4c829a126a3cb6, type: 3}
+  - {fileID: 21300000, guid: 37c63cace6c36468da412433ee893875, type: 3}
+  - {fileID: 21300000, guid: b24921dceb0954528a25c52a71687031, type: 3}
+  - {fileID: 21300000, guid: 51e688fd4cdcc45ad818c04f51813f1c, type: 3}
+  - {fileID: 21300000, guid: 16dd5b2eb9141468a948888c77673f10, type: 3}
+  - {fileID: 21300000, guid: f6465e3e2caa54935ac9495cedfd0b50, type: 3}
+  - {fileID: 21300000, guid: 46adae7eaafa548a695c935037d014c7, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - common_popup_title_01
+  - common_shadow_bottom
+  - titleicon_item
+  - item_btn_icon_coin
+  - item_frame
+  - item_img_timer
+  - btn_label_sale
+  - common_popup_title_00
+  - item_img_potion_red
+  - popup_bg
+  - common_popup_title_03
+  - item_img_arrow
+  - item_img_shield_A
+  - item_frame_white
+  - item_btn_icon_gem
+  - item_img_key
+  - item_img_clover
+  - item_img_crown
+  - popup_btn_close
+  - common_popup_title_02
+  - item_img_bomb
+  - common_btn_color_blue_0
+  - common_btn_color_brown
+  m_Tag: 11_Item
+  m_IsVariant: 0
