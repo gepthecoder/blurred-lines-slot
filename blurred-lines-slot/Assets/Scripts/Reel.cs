@@ -23,12 +23,11 @@ public class Reel : MonoBehaviour
             foreach (Transform image in transform)
             {
                 image.Translate(Vector3.down * Time.smoothDeltaTime * speed);
-                Debug.Log("image position " + image.localPosition.y);
                 //reset position bellow a certain point to the top of the reel
-                if (image.transform.localPosition.y <= -600)
+                if (image.transform.localPosition.y <= -1200)
                 {
 
-                    image.transform.localPosition = new Vector3(image.transform.localPosition.x, image.transform.localPosition.y + 1800, image.transform.localPosition.z);
+                    image.transform.localPosition = new Vector3(image.transform.localPosition.x, image.transform.localPosition.y + 2700, image.transform.localPosition.z);
                 }
             }
         }
@@ -53,9 +52,7 @@ public class Reel : MonoBehaviour
 
         foreach (Transform image in transform)
         {
-
             int rand = Random.Range(0, parts.Count);
-            Debug.Log("image name " + transform.parent.parent.name + " rand pos " + parts[rand] + " offset: " + transform.parent.GetComponent<RectTransform>().transform.position.y);
 
             image.transform.position = new Vector3(image.transform.position.x, parts[rand] + transform.parent.parent.GetComponent<RectTransform>().transform.position.y, image.transform.position.z);
             parts.RemoveAt(rand);

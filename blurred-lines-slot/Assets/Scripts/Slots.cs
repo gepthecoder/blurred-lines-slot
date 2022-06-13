@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Slots : MonoBehaviour
 {
+    [SerializeField] private Button spin_button_;
+
     public Reel[] reels;
     bool startSpin;
 
     void Start()
     {
+        spin_button_.onClick.AddListener(StartSpinning);
         startSpin = false;
     }
 
@@ -19,9 +23,20 @@ public class Slots : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space)) //input that starts slot machine
             {
                 startSpin = true;
+                spin_button_.interactable = false;
                 StartCoroutine(Spinning());
             }
         }
+    }
+
+    public void StartSpinning() // button callback
+    {
+        if (!startSpin)
+        {
+            startSpin = true;
+            spin_button_.interactable = false;
+            StartCoroutine(Spinning());
+        }       
     }
 
     IEnumerator Spinning()
@@ -40,5 +55,6 @@ public class Slots : MonoBehaviour
         }
         //allows the machine to be started again
         startSpin = false;
+        spin_button_.interactable = true;
     }
 }
