@@ -792,7 +792,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1437270525715632138}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -944,8 +944,9 @@ GameObject:
   - component: {fileID: 1437270525610856589}
   - component: {fileID: 1437270525610856588}
   - component: {fileID: 1437270525610856587}
+  - component: {fileID: 7701242420055529505}
   m_Layer: 5
-  m_Name: BurredReel01
+  m_Name: BlurredReel01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -973,12 +974,12 @@ RectTransform:
   - {fileID: 1437270526020029623}
   - {fileID: 1437270525314432935}
   m_Father: {fileID: 1437270525715632138}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -275, y: 0}
-  m_SizeDelta: {x: 300, y: 902.7356}
+  m_SizeDelta: {x: 300, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1437270525610856589
 CanvasRenderer:
@@ -1031,6 +1032,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &7701242420055529505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437270525610856585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfe652bc13099a4197f25a2623bca9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spin: 0
 --- !u!1 &1437270525695131199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,8 +1148,9 @@ GameObject:
   - component: {fileID: 1437270525695555385}
   - component: {fileID: 1437270525695555384}
   - component: {fileID: 1437270525695555367}
+  - component: {fileID: 8854456977394127768}
   m_Layer: 5
-  m_Name: BurredReel03
+  m_Name: BlurredReel03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1163,12 +1178,12 @@ RectTransform:
   - {fileID: 1437270526636359500}
   - {fileID: 1437270526434807462}
   m_Father: {fileID: 1437270525715632138}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 330, y: 0}
-  m_SizeDelta: {x: 300, y: 902.7356}
+  m_SizeDelta: {x: 300, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1437270525695555385
 CanvasRenderer:
@@ -1221,6 +1236,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &8854456977394127768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437270525695555365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfe652bc13099a4197f25a2623bca9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spin: 0
 --- !u!1 &1437270525706017921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,6 +1369,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 7049586330842314633}
   - {fileID: 1437270525551722967}
   - {fileID: 1437270526949106635}
   - {fileID: 1437270526170150683}
@@ -2383,8 +2412,9 @@ GameObject:
   - component: {fileID: 1437270526015086133}
   - component: {fileID: 1437270526015086132}
   - component: {fileID: 1437270526015086131}
+  - component: {fileID: 303403860249004610}
   m_Layer: 5
-  m_Name: BurredReel04
+  m_Name: BlurredReel04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2412,12 +2442,12 @@ RectTransform:
   - {fileID: 1437270526284723751}
   - {fileID: 1437270527070593437}
   m_Father: {fileID: 1437270525715632138}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 633, y: 0}
-  m_SizeDelta: {x: 300, y: 902.7356}
+  m_SizeDelta: {x: 300, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1437270526015086133
 CanvasRenderer:
@@ -2470,6 +2500,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &303403860249004610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437270526015086129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfe652bc13099a4197f25a2623bca9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spin: 0
 --- !u!1 &1437270526020029622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3034,7 +3077,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1437270525715632138}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3190,7 +3233,7 @@ RectTransform:
   m_Children:
   - {fileID: 1437270526255994360}
   m_Father: {fileID: 1437270525715632138}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -3493,7 +3536,7 @@ RectTransform:
   m_Children:
   - {fileID: 1437270526696029422}
   m_Father: {fileID: 1437270525715632138}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -3822,8 +3865,9 @@ GameObject:
   - component: {fileID: 1437270526389478040}
   - component: {fileID: 1437270526389478023}
   - component: {fileID: 1437270526389478022}
+  - component: {fileID: 2764159523723732477}
   m_Layer: 5
-  m_Name: BurredReel02
+  m_Name: BlurredReel02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3851,12 +3895,12 @@ RectTransform:
   - {fileID: 1437270527070174396}
   - {fileID: 1437270525322257492}
   m_Father: {fileID: 1437270525715632138}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 27, y: 0}
-  m_SizeDelta: {x: 300, y: 902.7356}
+  m_SizeDelta: {x: 300, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1437270526389478040
 CanvasRenderer:
@@ -3909,6 +3953,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &2764159523723732477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437270526389478020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfe652bc13099a4197f25a2623bca9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spin: 0
 --- !u!1 &1437270526434807461
 GameObject:
   m_ObjectHideFlags: 0
@@ -5191,7 +5248,7 @@ RectTransform:
   m_Children:
   - {fileID: 1437270525725023176}
   m_Father: {fileID: 1437270525715632138}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5703,8 +5760,9 @@ GameObject:
   - component: {fileID: 1437270527042634322}
   - component: {fileID: 1437270527042634321}
   - component: {fileID: 1437270527042634320}
+  - component: {fileID: 4863783399842909594}
   m_Layer: 5
-  m_Name: BurredReel00
+  m_Name: BlurredReel00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5732,12 +5790,12 @@ RectTransform:
   - {fileID: 1437270527298445427}
   - {fileID: 1437270526511970909}
   m_Father: {fileID: 1437270525715632138}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -578, y: 0}
-  m_SizeDelta: {x: 300, y: 902.7356}
+  m_SizeDelta: {x: 300, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1437270527042634322
 CanvasRenderer:
@@ -5790,6 +5848,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &4863783399842909594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437270527042634334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfe652bc13099a4197f25a2623bca9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spin: 0
 --- !u!1 &1437270527067515896
 GameObject:
   m_ObjectHideFlags: 0
@@ -6916,3 +6987,57 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!1 &4920718432999669238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7049586330842314633}
+  - component: {fileID: 7797427949602705877}
+  m_Layer: 5
+  m_Name: _SLOTS_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7049586330842314633
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4920718432999669238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1437270525715632138}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7797427949602705877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4920718432999669238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f536870be384443a58cb5f608984a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reels:
+  - {fileID: 4863783399842909594}
+  - {fileID: 7701242420055529505}
+  - {fileID: 2764159523723732477}
+  - {fileID: 8854456977394127768}
+  - {fileID: 303403860249004610}
