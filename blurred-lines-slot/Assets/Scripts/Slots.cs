@@ -152,6 +152,9 @@ public class Slots : MonoBehaviour
             //tells each reel to start spinning
             spinner.spin = true;
         }
+
+        SetupSlotSymbolsOnReels();
+
         for (int i = 0; i < reels.Length; i++)
         {
             //allow the reel to spin for a random amount of time then stop
@@ -184,6 +187,9 @@ public class Slots : MonoBehaviour
             //tells each reel to start spinning
             spinner.spin = true;
         }
+
+        SetupSlotSymbolsOnReels();
+
         for (int i = 0; i < reels.Length; i++)
         {
             //allow the reel to spin for a random amount of time then stop
@@ -200,6 +206,7 @@ public class Slots : MonoBehaviour
 
     private void SetupSlotSymbolsOnReels()
     {
+        Debug.Log("Shuffle Reel Symbols");
         // Randomly populate all reels with symbols
         int all_symbol_count = all_symbols_.Count;
 
