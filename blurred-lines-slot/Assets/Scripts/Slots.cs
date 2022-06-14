@@ -28,6 +28,8 @@ public class Slots : MonoBehaviour
     private bool is_last_auto_spin_forced_;
     public int GetNumOfAutoSpinsLeft() { return num_auto_spins_; }
 
+    List<Vector3> slot_outcome_ = new List<Vector3>();
+
     private void Awake()
     {
         SetupSlotSymbolsOnReels();
@@ -160,7 +162,7 @@ public class Slots : MonoBehaviour
             //allow the reel to spin for a random amount of time then stop
             yield return new WaitForSeconds(Random.Range(1,3));
             reels[i].spin = false;
-            reels[i].RandomPosition();
+            slot_outcome_.Add(reels[i].SetReelOutcome());
         }
         //allows the machine to be started again
         startSpin = false;
@@ -175,6 +177,12 @@ public class Slots : MonoBehaviour
         {
             Debug.LogError("Was not able to execute spin: " + errorMessage);
         }
+
+        // determine outcome
+        Line line1 = new Line((int)slot_outcome_[0].x, (int)slot_outcome_[1].x, (int)slot_outcome_[2].x, (int)slot_outcome_[3].x, (int)slot_outcome_[4].x);
+        Line line2 = new Line((int)slot_outcome_[0].y, (int)slot_outcome_[1].y, (int)slot_outcome_[2].y, (int)slot_outcome_[3].y, (int)slot_outcome_[4].y);
+        Line line3 = new Line((int)slot_outcome_[0].z, (int)slot_outcome_[1].z, (int)slot_outcome_[2].z, (int)slot_outcome_[3].z, (int)slot_outcome_[4].z);
+
 
         current_slot_state_ = SlotState.Waiting;
         Debug.Log("current_slot_state_: SlotState.Waiting");
@@ -195,7 +203,7 @@ public class Slots : MonoBehaviour
             //allow the reel to spin for a random amount of time then stop
             yield return new WaitForSeconds(Random.Range(1, 3));
             reels[i].spin = false;
-            reels[i].RandomPosition();
+            slot_outcome_.Add(reels[i].SetReelOutcome());
         }
         //allows the machine to be started again
         startSpin = false;
@@ -218,7 +226,7 @@ public class Slots : MonoBehaviour
 
         foreach (Reel reel in reels)
         {
-            // randomly take 10 not unique (TODO: unless scatter - appears only one on reel) symbols and populate reel
+            // randomly take 10 random (TODO: unless scatter - appears only one on reel) symbols and populate reel
             List<Symbol> random_symbols = new List<Symbol>();
 
             for (int i = 0; i < all_symbol_count; i++)
@@ -259,4 +267,20 @@ public class Slots : MonoBehaviour
         return index;
     }
 
+}
+
+[System.Serializable]
+public class Line
+{
+    public int x, y, z, w, q;
+
+    public Line(int x_, int y_, int z_, int w_, int q_) {
+        x = x_;
+        y = y_;
+        z = z_;
+        w = w_;
+        q = q_;
+    }
+
+    public Line() { }
 }

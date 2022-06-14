@@ -5010,6 +5010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfe652bc13099a4197f25a2623bca9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reel_symbol_ids: 
   spin: 0
 --- !u!114 &1870787009604719012
 MonoBehaviour:
@@ -6843,6 +6844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfe652bc13099a4197f25a2623bca9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reel_symbol_ids: 
   spin: 0
 --- !u!114 &5609594364709563107
 MonoBehaviour:
@@ -7220,6 +7222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfe652bc13099a4197f25a2623bca9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reel_symbol_ids: 
   spin: 0
 --- !u!114 &6023950567814251569
 MonoBehaviour:
@@ -8342,6 +8345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfe652bc13099a4197f25a2623bca9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reel_symbol_ids: 
   spin: 0
 --- !u!224 &8225574611326543777
 RectTransform:
@@ -8374,6 +8378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfe652bc13099a4197f25a2623bca9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reel_symbol_ids: 
   spin: 0
 --- !u!114 &9206539087532294653
 MonoBehaviour:
