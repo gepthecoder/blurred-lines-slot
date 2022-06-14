@@ -4462,6 +4462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491e278c824d44f469733b7381b2304a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  auto_play_btn_sprite_: {fileID: 21300000, guid: 7d96c87a1440846849d9c34b6d5cc4c1, type: 3}
+  stop_auto_play_btn_sprite_: {fileID: 21300000, guid: a40981489990940f7942012315b93f69, type: 3}
 --- !u!4 &1212454603
 Transform:
   m_ObjectHideFlags: 0

@@ -6,6 +6,15 @@ using SlotHelper;
 
 public class Slots : MonoBehaviour
 {
+    public enum SlotState
+    {
+        Waiting = 0,
+        Spinning = 1,
+        Auto = 2,
+    }
+
+    public SlotState current_slot_state_ = SlotState.Waiting;
+
     [SerializeField] private Button spin_button_;
     private Animator spin_btn_anime_;
 
@@ -14,6 +23,7 @@ public class Slots : MonoBehaviour
 
     private bool is_auto_play_;
     private int num_auto_spins_;
+    private bool is_last_auto_spin_forced_;
     public int GetNumOfAutoSpinsLeft() { return num_auto_spins_; }
 
     void Start()
@@ -47,6 +57,7 @@ public class Slots : MonoBehaviour
             spin_button_.interactable = false;
             spin_btn_anime_.SetTrigger(Consts.spin_button_trigger_);
 
+            current_slot_state_ = SlotState.Spinning;
             StartCoroutine(Spinning());
         }       
     }
@@ -57,6 +68,8 @@ public class Slots : MonoBehaviour
         {
             success = true;
             Debug.Log("TryStartAutoSpins");
+
+            current_slot_state_ = SlotState.Auto;
             AutoSpins(num_spins);
         }
         else { 
@@ -89,12 +102,15 @@ public class Slots : MonoBehaviour
 
         if (is_auto_play_) { 
 
-            if(num_auto_spins_ <= 0) {
+            if(num_auto_spins_ <= 0 || is_last_auto_spin_forced_) {
                 //stop loop 
                 is_auto_play_ = false;
+                is_last_auto_spin_forced_ = false;
                 num_auto_spins_ = 0;
                 spin_button_.interactable = true;
                 StopAllCoroutines();
+                //emmit stop event
+                current_slot_state_ = SlotState.Waiting;
             }
             else
             {
@@ -108,6 +124,13 @@ public class Slots : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void StopAutoSpins(bool force)
+    {
+        num_auto_spins_ = 0;
+        // emmit last spin info
+        is_last_auto_spin_forced_ = true;
     }
 
     IEnumerator Spinning()

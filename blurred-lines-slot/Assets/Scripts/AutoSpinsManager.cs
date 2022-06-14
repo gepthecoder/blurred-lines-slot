@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using SlotHelper;
 
 public class AutoSpinsManager : MonoBehaviour
 {
@@ -17,7 +17,8 @@ public class AutoSpinsManager : MonoBehaviour
     [SerializeField] private Text auto_spin_num_txt_;
 
     [SerializeField] private Button start_auto_spins_btn_;
-
+    private Image auto_play_btn_img_;
+    private Text auto_play_btn_txt_;
 
     [SerializeField] private Text auto_spin_counter_txt_;
 
@@ -32,11 +33,22 @@ public class AutoSpinsManager : MonoBehaviour
     private void Awake()
     { 
         //TODO: refac: uimanager->autospins
-        auto_play_btn_.onClick.AddListener(OpenCloseAutoSpinsUi);
+        auto_play_btn_.onClick.AddListener(() => {
+            if (auto_spins_started_) {
+                // stop auto spins
+                slot_manager_.StopAutoSpins(true);
+                auto_play_btn_img_.sprite = UiManager.instance_.GetAutoPlayBtnSprite();
+                auto_play_btn_txt_.text = Consts.auto_spin_text_normal_;
+            }
+            OpenCloseAutoSpinsUi();
+        });
 
         increase_auto_spins_btn_.onClick.AddListener(IncreaseNumOfSpins);
         decrease_auto_spins_btn_.onClick.AddListener(DecreaseNumOfSpins);
         start_auto_spins_btn_.onClick.AddListener(StartAutoSpins);
+
+        auto_play_btn_img_ = auto_play_btn_.GetComponent<Image>();
+        auto_play_btn_txt_ = auto_play_btn_.GetComponentInChildren<Text>();
 
         current_set_spins_ = min_auto_spins_;
         auto_spin_counter_txt_.text = "";
@@ -80,6 +92,8 @@ public class AutoSpinsManager : MonoBehaviour
     {
         OpenCloseAutoSpinsUi();
 
+        if(slot_manager_.current_slot_state_ != Slots.SlotState.Waiting) { return; }
+
         //check balance
 
         bool success;
@@ -89,6 +103,8 @@ public class AutoSpinsManager : MonoBehaviour
         {
             Debug.Log("Start auto spins: Success!!");
             auto_spins_started_ = true;
+            auto_play_btn_img_.sprite = UiManager.instance_.GetStopAutoPlayBtnSprite();
+            auto_play_btn_txt_.text = Consts.auto_spin_text_stop_;
         }
         else
         {
