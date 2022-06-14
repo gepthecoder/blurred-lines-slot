@@ -40,7 +40,7 @@ public class AutoSpinsManager : MonoBehaviour
                 auto_play_btn_img_.sprite = UiManager.instance_.GetAutoPlayBtnSprite();
                 auto_play_btn_txt_.text = Consts.auto_spin_text_normal_;
             }
-            OpenCloseAutoSpinsUi();
+            else { OpenCloseAutoSpinsUi(); }
         });
 
         increase_auto_spins_btn_.onClick.AddListener(IncreaseNumOfSpins);
@@ -62,7 +62,8 @@ public class AutoSpinsManager : MonoBehaviour
             if(auto_spins_left <= 0) { 
                 auto_spins_started_ = false;
                 auto_spin_counter_txt_.text = "";
-
+                auto_play_btn_img_.sprite = UiManager.instance_.GetAutoPlayBtnSprite();
+                auto_play_btn_txt_.text = Consts.auto_spin_text_normal_;
             }
             else { auto_spin_counter_txt_.text = $"{auto_spins_left}/{current_set_spins_}"; }
         }
@@ -92,7 +93,10 @@ public class AutoSpinsManager : MonoBehaviour
     {
         OpenCloseAutoSpinsUi();
 
-        if(slot_manager_.current_slot_state_ != Slots.SlotState.Waiting) { return; }
+        if(slot_manager_.current_slot_state_ != Slots.SlotState.Waiting) {
+            Debug.Log("Spin is in progress!!");
+            return;
+        }
 
         //check balance
 

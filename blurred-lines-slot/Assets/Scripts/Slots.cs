@@ -58,7 +58,9 @@ public class Slots : MonoBehaviour
             spin_btn_anime_.SetTrigger(Consts.spin_button_trigger_);
 
             current_slot_state_ = SlotState.Spinning;
-            StartCoroutine(Spinning());
+            Debug.Log("current_slot_state_: SlotState.Spinning");
+
+            StartCoroutine(Spinning(OnNormalSpinStopped));
         }       
     }
 
@@ -70,6 +72,8 @@ public class Slots : MonoBehaviour
             Debug.Log("TryStartAutoSpins");
 
             current_slot_state_ = SlotState.Auto;
+            Debug.Log("current_slot_state_: SlotState.Auto");
+
             AutoSpins(num_spins);
         }
         else { 
@@ -92,7 +96,7 @@ public class Slots : MonoBehaviour
 
     }
 
-    private void OnSpinFinnished(string errorMessage)
+    private void OnSpinFinnished(string errorMessage) // autospins workflow
     {
         if (errorMessage != null)
         {
@@ -111,6 +115,7 @@ public class Slots : MonoBehaviour
                 StopAllCoroutines();
                 //emmit stop event
                 current_slot_state_ = SlotState.Waiting;
+                Debug.Log("current_slot_state_: SlotState.Waiting");
             }
             else
             {
@@ -130,10 +135,10 @@ public class Slots : MonoBehaviour
     {
         num_auto_spins_ = 0;
         // emmit last spin info
-        is_last_auto_spin_forced_ = true;
+        is_last_auto_spin_forced_ = force;
     }
 
-    IEnumerator Spinning()
+    IEnumerator Spinning(System.Action<string> onCompleted)
     {
         foreach (Reel spinner in reels)
         {
@@ -150,6 +155,19 @@ public class Slots : MonoBehaviour
         //allows the machine to be started again
         startSpin = false;
         spin_button_.interactable = true;
+
+        onCompleted(null);
+    }
+
+    private void OnNormalSpinStopped(string errorMessage)
+    {
+        if (errorMessage != null)
+        {
+            Debug.LogError("Was not able to execute spin: " + errorMessage);
+        }
+
+        current_slot_state_ = SlotState.Waiting;
+        Debug.Log("current_slot_state_: SlotState.Waiting");
     }
 
     private IEnumerator AutoSpinning(System.Action<string> onCompleted)
