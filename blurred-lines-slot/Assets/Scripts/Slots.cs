@@ -68,6 +68,7 @@ public class Slots : MonoBehaviour
 
             current_slot_state_ = SlotState.Spinning;
             Debug.Log("current_slot_state_: SlotState.Spinning");
+            slot_outcome_.Clear();
 
             StartCoroutine(Spinning(OnNormalSpinStopped));
         }       
@@ -82,6 +83,7 @@ public class Slots : MonoBehaviour
 
             current_slot_state_ = SlotState.Auto;
             Debug.Log("current_slot_state_: SlotState.Auto");
+            slot_outcome_.Clear();
 
             AutoSpins(num_spins);
         }
@@ -179,10 +181,28 @@ public class Slots : MonoBehaviour
         }
 
         // determine outcome
+        Debug.Log($"{(int)slot_outcome_[0].x}{(int)slot_outcome_[1].x}{(int)slot_outcome_[2].x}{(int)slot_outcome_[3].x}{(int)slot_outcome_[4].x}");
+
         Line line1 = new Line((int)slot_outcome_[0].x, (int)slot_outcome_[1].x, (int)slot_outcome_[2].x, (int)slot_outcome_[3].x, (int)slot_outcome_[4].x);
         Line line2 = new Line((int)slot_outcome_[0].y, (int)slot_outcome_[1].y, (int)slot_outcome_[2].y, (int)slot_outcome_[3].y, (int)slot_outcome_[4].y);
         Line line3 = new Line((int)slot_outcome_[0].z, (int)slot_outcome_[1].z, (int)slot_outcome_[2].z, (int)slot_outcome_[3].z, (int)slot_outcome_[4].z);
 
+
+        // straight lines + wilds
+        int wild_index = (int)Enums.SymbolToId(Enums.Symbol.Wild);
+        Debug.Log("Wild Index: " + wild_index);
+        bool threeInLine1 = (line1.x == line1.y && line1.y == line1.z) || (line1.x == wild_index && line1.y == line1.z) || (line1.y == wild_index && line1.x == line1.z) || (line1.z == wild_index && line1.y == line1.x);
+        bool threeInLine2 = (line2.x == line2.y && line2.y == line2.z) || (line2.x == wild_index && line2.y == line2.z) || (line2.y == wild_index && line2.x == line2.z) || (line2.z == wild_index && line2.y == line2.x);
+        bool threeInLine3 = (line3.x == line3.y && line3.y == line3.z) || (line3.x == wild_index && line3.y == line3.z) || (line3.y == wild_index && line3.x == line3.z) || (line3.z == wild_index && line3.y == line3.x);
+
+        Debug.Log("<color=green>Line 1</color> : " + threeInLine1);
+        Debug.Log("<color=red>Line 2</color> : " + threeInLine2);
+        Debug.Log("<color=cyan>Line 3</color> : " + threeInLine3);
+
+        if(threeInLine1 || threeInLine2 || threeInLine3)
+        {
+            Debug.Log("<color=yellow>W</color><color=red>I</color><color=brown>N</color><color=green>N</color><color=cyan>E</color><color=GRAY>R</color>");
+        }
 
         current_slot_state_ = SlotState.Waiting;
         Debug.Log("current_slot_state_: SlotState.Waiting");

@@ -15,17 +15,18 @@ namespace SlotHelper
         [System.Serializable]
         public enum Symbol
         {
-            Cherry = 0,
-            Apple = 1,
-            Pear = 2,
-            Orange = 3,
-            Grapes = 4,
-            Watermelon = 5,
-            Blueberry = 6,
-            Strawberry = 7,
-            Wild = 8,
-            Scatter = 9,
-            None = 10,
+            None = 0,
+
+            Cherry = 1,
+            Apple = 2,
+            Pear = 3,
+            Orange = 4,
+            Grapes = 5,
+            Watermelon = 6,
+            Blueberry = 7,
+            Strawberry = 8,
+            Wild = 9,
+            Scatter = 10,
         }
 
         public static Symbol StringToSymbol(string symbol)
