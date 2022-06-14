@@ -191,9 +191,16 @@ public class Slots : MonoBehaviour
         // straight lines + wilds
         int wild_index = (int)Enums.SymbolToId(Enums.Symbol.Wild);
         Debug.Log("Wild Index: " + wild_index);
-        bool threeInLine1 = (line1.x == line1.y && line1.y == line1.z) || (line1.x == wild_index && line1.y == line1.z) || (line1.y == wild_index && line1.x == line1.z) || (line1.z == wild_index && line1.y == line1.x);
-        bool threeInLine2 = (line2.x == line2.y && line2.y == line2.z) || (line2.x == wild_index && line2.y == line2.z) || (line2.y == wild_index && line2.x == line2.z) || (line2.z == wild_index && line2.y == line2.x);
-        bool threeInLine3 = (line3.x == line3.y && line3.y == line3.z) || (line3.x == wild_index && line3.y == line3.z) || (line3.y == wild_index && line3.x == line3.z) || (line3.z == wild_index && line3.y == line3.x);
+
+        // 3 Straight Lines
+        line1.x = line1.x == wild_index ? line1.y : line1.x;
+        line1.y = line1.y == wild_index && line1.x == line1.z ? line1.x : line1.y;
+        line1.z = line1.z == wild_index && line1.x == line1.y ? line1.x : line1.z;
+        bool threeInLine1 = (line1.x == line1.y && line1.y == line1.z);
+        bool threeInLine2 = (line2.x == line2.y && line2.y == line2.z);
+        bool threeInLine3 = (line3.x == line3.y && line3.y == line3.z);
+
+      
 
         Debug.Log("<color=green>Line 1</color> : " + threeInLine1);
         Debug.Log("<color=red>Line 2</color> : " + threeInLine2);
