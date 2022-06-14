@@ -11,7 +11,7 @@ public class Symbol : ScriptableObject
     public string _NAME_;
 
     [Range(1, 100)]
-    public float _FREQUENCY_;
+    public int _FREQUENCY_;
 
     public Sprite _SYMBOL_;
 

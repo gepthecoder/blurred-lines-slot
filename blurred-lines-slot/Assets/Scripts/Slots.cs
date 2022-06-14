@@ -21,10 +21,17 @@ public class Slots : MonoBehaviour
     public Reel[] reels;
     bool startSpin;
 
+    [SerializeField] private List<Symbol> all_symbols_;
+
     private bool is_auto_play_;
     private int num_auto_spins_;
     private bool is_last_auto_spin_forced_;
     public int GetNumOfAutoSpinsLeft() { return num_auto_spins_; }
+
+    private void Awake()
+    {
+        SetupSlotSymbolsOnReels();
+    }
 
     void Start()
     {
@@ -189,6 +196,60 @@ public class Slots : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         onCompleted(null);
+    }
+
+    private void SetupSlotSymbolsOnReels()
+    {
+        // Randomly populate all reels with symbols
+        int all_symbol_count = all_symbols_.Count;
+
+        int[] frequency_table = new int[all_symbol_count];
+        for (int j = 0; j < all_symbol_count; j++)
+        {
+            frequency_table.SetValue(all_symbols_[j]._FREQUENCY_, j);
+        }
+
+        foreach (Reel reel in reels)
+        {
+            // randomly take 10 not unique (TODO: unless scatter - appears only one on reel) symbols and populate reel
+            List<Symbol> random_symbols = new List<Symbol>();
+
+            for (int i = 0; i < all_symbol_count; i++)
+            {
+                int random_symbol_index = GetRandomWeightedIndex(frequency_table);
+                random_symbols.Add(all_symbols_[random_symbol_index]);
+            }
+            reel.InitRandomSymbolsOnReel(random_symbols);
+        }
+    }
+
+    public int GetRandomWeightedIndex(int[] weights)
+    {
+        // Get the total sum of all the weights.
+        int elementCount = weights.Length;
+        int weightSum = 0;
+        for (int i = 0; i < elementCount; ++i)
+        {
+            weightSum += weights[i];
+        }
+
+        // Step through all the possibilities, one by one, checking to see if each one is selected.
+        int index = 0;
+        int lastIndex = elementCount - 1;
+        while (index < lastIndex)
+        {
+            // Do a probability check with a likelihood of weights[index] / weightSum.
+            if (Random.Range(0, weightSum) < weights[index])
+            {
+                return index;
+            }
+
+            // Remove the last item from the sum of total untested weights and try again.
+            weightSum -= weights[index++];
+        }
+
+        // No other item was selected, so return very last index.
+        return index;
     }
 
 }

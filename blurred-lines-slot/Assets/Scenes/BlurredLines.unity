@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 3893878}
   - component: {fileID: 3893880}
   m_Layer: 5
-  m_Name: Wild
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -922,7 +922,7 @@ GameObject:
   - component: {fileID: 384654675}
   - component: {fileID: 384654677}
   m_Layer: 5
-  m_Name: Watermelon
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1192,7 +1192,7 @@ GameObject:
   - component: {fileID: 556170194}
   - component: {fileID: 556170196}
   m_Layer: 5
-  m_Name: Blueberry
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1283,7 +1283,7 @@ GameObject:
   - component: {fileID: 594219593}
   - component: {fileID: 594219595}
   m_Layer: 5
-  m_Name: Apple
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1663,7 +1663,7 @@ GameObject:
   - component: {fileID: 794564598}
   - component: {fileID: 794564600}
   m_Layer: 5
-  m_Name: Strawberry
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1849,7 +1849,7 @@ GameObject:
   - component: {fileID: 857354332}
   - component: {fileID: 857354334}
   m_Layer: 5
-  m_Name: Scatter
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3183,7 +3183,7 @@ GameObject:
   - component: {fileID: 1465798143}
   - component: {fileID: 1465798145}
   m_Layer: 5
-  m_Name: Cherry
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3274,7 +3274,7 @@ GameObject:
   - component: {fileID: 1479709948}
   - component: {fileID: 1479709950}
   m_Layer: 5
-  m_Name: Orange
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3723,7 +3723,7 @@ GameObject:
   - component: {fileID: 1769039930}
   - component: {fileID: 1769039932}
   m_Layer: 5
-  m_Name: Pear
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4402,7 +4402,7 @@ GameObject:
   - component: {fileID: 2062163624}
   - component: {fileID: 2062163626}
   m_Layer: 5
-  m_Name: Grapes
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4647,7 +4647,7 @@ GameObject:
   - component: {fileID: 1414473234550454078}
   - component: {fileID: 1414473234550454076}
   m_Layer: 5
-  m_Name: Apple
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4810,7 +4810,7 @@ GameObject:
   - component: {fileID: 1414473235026574816}
   - component: {fileID: 1414473235026574818}
   m_Layer: 5
-  m_Name: Apple
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4901,7 +4901,7 @@ GameObject:
   - component: {fileID: 1414473235529627168}
   - component: {fileID: 1414473235529627170}
   m_Layer: 5
-  m_Name: Apple
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4992,7 +4992,7 @@ GameObject:
   - component: {fileID: 1414473235752823444}
   - component: {fileID: 1414473235752823446}
   m_Layer: 5
-  m_Name: Apple
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5039,7 +5039,7 @@ GameObject:
   - component: {fileID: 1870787009604719018}
   - component: {fileID: 1870787009604719012}
   m_Layer: 5
-  m_Name: Strawberry
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5149,7 +5149,7 @@ GameObject:
   - component: {fileID: 1870787010100198811}
   - component: {fileID: 1870787010100198805}
   m_Layer: 5
-  m_Name: Strawberry
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5263,7 +5263,7 @@ GameObject:
   - component: {fileID: 1870787010109780865}
   - component: {fileID: 1870787010109780879}
   m_Layer: 5
-  m_Name: Strawberry
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5331,7 +5331,7 @@ GameObject:
   - component: {fileID: 1870787010360183627}
   - component: {fileID: 1870787010360183621}
   m_Layer: 5
-  m_Name: Strawberry
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5460,7 +5460,7 @@ GameObject:
   - component: {fileID: 2814447478791084869}
   - component: {fileID: 2814447478791084867}
   m_Layer: 5
-  m_Name: Pear
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5479,7 +5479,7 @@ GameObject:
   - component: {fileID: 2814447478905026618}
   - component: {fileID: 2814447478905026620}
   m_Layer: 5
-  m_Name: Pear
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5627,7 +5627,7 @@ GameObject:
   - component: {fileID: 2814447479114038153}
   - component: {fileID: 2814447479114038159}
   m_Layer: 5
-  m_Name: Pear
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5695,7 +5695,7 @@ GameObject:
   - component: {fileID: 2814447480772609007}
   - component: {fileID: 2814447480772609001}
   m_Layer: 5
-  m_Name: Pear
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5752,7 +5752,7 @@ GameObject:
   - component: {fileID: 3111309904361336028}
   - component: {fileID: 3111309904361336030}
   m_Layer: 5
-  m_Name: Orange
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5896,7 +5896,7 @@ GameObject:
   - component: {fileID: 3111309904578236776}
   - component: {fileID: 3111309904578236778}
   m_Layer: 5
-  m_Name: Orange
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6006,7 +6006,7 @@ GameObject:
   - component: {fileID: 3111309904591721163}
   - component: {fileID: 3111309904591721161}
   m_Layer: 5
-  m_Name: Orange
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6025,7 +6025,7 @@ GameObject:
   - component: {fileID: 3111309905253492236}
   - component: {fileID: 3111309905253492238}
   m_Layer: 5
-  m_Name: Orange
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6169,7 +6169,7 @@ GameObject:
   - component: {fileID: 3362059292191091580}
   - component: {fileID: 3362059292191091578}
   m_Layer: 5
-  m_Name: Blueberry
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6264,7 +6264,7 @@ GameObject:
   - component: {fileID: 3362059292541878169}
   - component: {fileID: 3362059292541878175}
   m_Layer: 5
-  m_Name: Blueberry
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6298,7 +6298,7 @@ GameObject:
   - component: {fileID: 3362059293585371906}
   - component: {fileID: 3362059293585371908}
   m_Layer: 5
-  m_Name: Blueberry
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6442,7 +6442,7 @@ GameObject:
   - component: {fileID: 3362059293728805164}
   - component: {fileID: 3362059293728805162}
   m_Layer: 5
-  m_Name: Blueberry
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6499,7 +6499,7 @@ GameObject:
   - component: {fileID: 3579339450426732613}
   - component: {fileID: 3579339450426732615}
   m_Layer: 5
-  m_Name: Scatter
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6590,7 +6590,7 @@ GameObject:
   - component: {fileID: 3579339450798726127}
   - component: {fileID: 3579339450798726125}
   m_Layer: 5
-  m_Name: Scatter
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6681,7 +6681,7 @@ GameObject:
   - component: {fileID: 3579339451574777967}
   - component: {fileID: 3579339451574777965}
   m_Layer: 5
-  m_Name: Scatter
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6806,7 +6806,7 @@ GameObject:
   - component: {fileID: 3579339451716456050}
   - component: {fileID: 3579339451716456048}
   m_Layer: 5
-  m_Name: Scatter
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6929,7 +6929,7 @@ GameObject:
   - component: {fileID: 5609594364709563117}
   - component: {fileID: 5609594364709563107}
   m_Layer: 5
-  m_Name: Wild
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6982,7 +6982,7 @@ GameObject:
   - component: {fileID: 5609594364992599563}
   - component: {fileID: 5609594364992599557}
   m_Layer: 5
-  m_Name: Wild
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7073,7 +7073,7 @@ GameObject:
   - component: {fileID: 5609594365520150635}
   - component: {fileID: 5609594365520150629}
   m_Layer: 5
-  m_Name: Wild
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7145,7 +7145,7 @@ GameObject:
   - component: {fileID: 5609594366465132414}
   - component: {fileID: 5609594366465132400}
   m_Layer: 5
-  m_Name: Wild
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7306,7 +7306,7 @@ GameObject:
   - component: {fileID: 6023950567814251571}
   - component: {fileID: 6023950567814251569}
   m_Layer: 5
-  m_Name: Grapes
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7325,7 +7325,7 @@ GameObject:
   - component: {fileID: 6023950568541743850}
   - component: {fileID: 6023950568541743848}
   m_Layer: 5
-  m_Name: Grapes
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7416,7 +7416,7 @@ GameObject:
   - component: {fileID: 6023950569615473262}
   - component: {fileID: 6023950569615473260}
   m_Layer: 5
-  m_Name: Grapes
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7507,7 +7507,7 @@ GameObject:
   - component: {fileID: 6023950569770288782}
   - component: {fileID: 6023950569770288780}
   m_Layer: 5
-  m_Name: Grapes
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7687,7 +7687,7 @@ GameObject:
   - component: {fileID: 6636180965893422800}
   - component: {fileID: 6636180965893422382}
   m_Layer: 5
-  m_Name: Cherry
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7778,7 +7778,7 @@ GameObject:
   - component: {fileID: 6636180966096902725}
   - component: {fileID: 6636180966096902587}
   m_Layer: 5
-  m_Name: Cherry
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7869,7 +7869,7 @@ GameObject:
   - component: {fileID: 6636180966097183380}
   - component: {fileID: 6636180966097183082}
   m_Layer: 5
-  m_Name: Cherry
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7960,7 +7960,7 @@ GameObject:
   - component: {fileID: 6636180966098423513}
   - component: {fileID: 6636180966098423079}
   m_Layer: 5
-  m_Name: Cherry
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8028,7 +8028,7 @@ GameObject:
   - component: {fileID: 7113203088366081040}
   - component: {fileID: 7113203088366081046}
   m_Layer: 5
-  m_Name: Watermelon
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8093,7 +8093,7 @@ GameObject:
   - component: {fileID: 7113203088807479735}
   - component: {fileID: 7113203088807479729}
   m_Layer: 5
-  m_Name: Watermelon
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8184,7 +8184,7 @@ GameObject:
   - component: {fileID: 7113203089102793535}
   - component: {fileID: 7113203089102793529}
   m_Layer: 5
-  m_Name: Watermelon
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8324,7 +8324,7 @@ GameObject:
   - component: {fileID: 7113203089628101876}
   - component: {fileID: 7113203089628101874}
   m_Layer: 5
-  m_Name: Watermelon
+  m_Name: symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8395,3 +8395,14 @@ MonoBehaviour:
   - {fileID: 3868154048423785941}
   - {fileID: 7571514526073832368}
   - {fileID: 1713582110994258538}
+  all_symbols_:
+  - {fileID: 11400000, guid: 1681e8a5aa1b2d347875ac5eb6a38276, type: 2}
+  - {fileID: 11400000, guid: fc2133f6f07690e4c9bba034afacd8c7, type: 2}
+  - {fileID: 11400000, guid: 904a5303136d35e4fb246454ffeda5e9, type: 2}
+  - {fileID: 11400000, guid: 1ecd33e0f6ffe684aad92d3468b73988, type: 2}
+  - {fileID: 11400000, guid: f6c05a3ed325e8447a9f4a33805a4135, type: 2}
+  - {fileID: 11400000, guid: a98673eab3d663f42988aad19f84e8d9, type: 2}
+  - {fileID: 11400000, guid: 5862f1c42ea99064e9b75a4c035542bf, type: 2}
+  - {fileID: 11400000, guid: 9213fc7a515ae6b4394e7380f69b2a12, type: 2}
+  - {fileID: 11400000, guid: 6484864fdd973434bb231704a0c08482, type: 2}
+  - {fileID: 11400000, guid: 210b1f505e3b2de45b9ddd71f406a5fd, type: 2}
