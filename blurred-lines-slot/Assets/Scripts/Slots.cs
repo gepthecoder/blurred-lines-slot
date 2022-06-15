@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using SlotHelper;
-
 public class Slots : MonoBehaviour
 {
     public enum SlotState
@@ -181,35 +180,99 @@ public class Slots : MonoBehaviour
         }
 
         // determine outcome
+
         Debug.Log($"{(int)slot_outcome_[0].x}{(int)slot_outcome_[1].x}{(int)slot_outcome_[2].x}{(int)slot_outcome_[3].x}{(int)slot_outcome_[4].x}");
+        Debug.Log($"{(int)slot_outcome_[0].y}{(int)slot_outcome_[1].y}{(int)slot_outcome_[2].y}{(int)slot_outcome_[3].y}{(int)slot_outcome_[4].y}");
+        Debug.Log($"{(int)slot_outcome_[0].z}{(int)slot_outcome_[1].z}{(int)slot_outcome_[2].z}{(int)slot_outcome_[3].z}{(int)slot_outcome_[4].z}");
 
-        Line line1 = new Line((int)slot_outcome_[0].x, (int)slot_outcome_[1].x, (int)slot_outcome_[2].x, (int)slot_outcome_[3].x, (int)slot_outcome_[4].x);
-        Line line2 = new Line((int)slot_outcome_[0].y, (int)slot_outcome_[1].y, (int)slot_outcome_[2].y, (int)slot_outcome_[3].y, (int)slot_outcome_[4].y);
-        Line line3 = new Line((int)slot_outcome_[0].z, (int)slot_outcome_[1].z, (int)slot_outcome_[2].z, (int)slot_outcome_[3].z, (int)slot_outcome_[4].z);
+        Line line1 = new Line(1, (int)slot_outcome_[0].x, (int)slot_outcome_[1].x, (int)slot_outcome_[2].x, (int)slot_outcome_[3].x, (int)slot_outcome_[4].x);
+        Line line2 = new Line(2, (int)slot_outcome_[0].y, (int)slot_outcome_[1].y, (int)slot_outcome_[2].y, (int)slot_outcome_[3].y, (int)slot_outcome_[4].y);
+        Line line3 = new Line(3, (int)slot_outcome_[0].z, (int)slot_outcome_[1].z, (int)slot_outcome_[2].z, (int)slot_outcome_[3].z, (int)slot_outcome_[4].z);
 
+        List<Line> all_lines = new List<Line>();
+        all_lines.Add(line1);
+        all_lines.Add(line2);
+        all_lines.Add(line3);
+
+        // track lines with symbols for payout
+        Dictionary<int, Structs.WinningCombination> winning_lines = new Dictionary<int, Structs.WinningCombination>(); // line ID and WIN (symbol, occurences)
 
         // straight lines + wilds
         int wild_index = (int)Enums.SymbolToId(Enums.Symbol.Wild);
         Debug.Log("Wild Index: " + wild_index);
 
-        // 3 Straight Lines
-        line1.x = line1.x == wild_index ? line1.y : line1.x;
-        line1.y = line1.y == wild_index && line1.x == line1.z ? line1.x : line1.y;
-        line1.z = line1.z == wild_index && line1.x == line1.y ? line1.x : line1.z;
-        bool threeInLine1 = (line1.x == line1.y && line1.y == line1.z);
-        bool threeInLine2 = (line2.x == line2.y && line2.y == line2.z);
-        bool threeInLine3 = (line3.x == line3.y && line3.y == line3.z);
+        int occurences_in_row = 1; //one is always
+        int winning_symbol_id = -1;
 
-      
-
-        Debug.Log("<color=green>Line 1</color> : " + threeInLine1);
-        Debug.Log("<color=red>Line 2</color> : " + threeInLine2);
-        Debug.Log("<color=cyan>Line 3</color> : " + threeInLine3);
-
-        if(threeInLine1 || threeInLine2 || threeInLine3)
+        for (int i = 0; i < all_lines.Count; i++)
         {
-            Debug.Log("<color=yellow>W</color><color=red>I</color><color=brown>N</color><color=green>N</color><color=cyan>E</color><color=GRAY>R</color>");
+            int i_line_count = all_lines[i].i_line.Count;
+
+            for (int j = 0; j < i_line_count; j++)
+            {
+                if (j + 1 > i_line_count) break;
+
+                if ((all_lines[i].i_line[j] == all_lines[i].i_line[j + 1]) || (all_lines[i].i_line[j] == wild_index) || (all_lines[i].i_line[j + 1] == wild_index))
+                {
+                    occurences_in_row++;
+                    if(occurences_in_row >= 3)
+                    {
+                        bool is_wild_line = false;
+                        //full line
+                        if (occurences_in_row == 5)
+                        {
+                            // wild line check
+                            Line wildline = new Line(777, 9, 9, 9, 9, 9);
+                            is_wild_line = wildline.i_line.Equals(all_lines[i].i_line);
+                        }
+
+                        winning_symbol_id = is_wild_line ? wild_index : all_lines[i].i_line[0];
+                    }
+                }
+                else { break; }
+            }
+
+            // we have a win
+            if(occurences_in_row >= 3)
+            {
+                // check wilds as winning symbol
+                if(winning_symbol_id == wild_index)
+                {
+                    List<int> without_wilds = all_lines[i].i_line;
+                    without_wilds.RemoveAll(item => item == wild_index);
+                    winning_symbol_id = without_wilds[0];
+                }
+                Structs.WinningCombination win = new Structs.WinningCombination();
+                win.symbol = winning_symbol_id;
+                win.occurence = occurences_in_row;
+                winning_lines.Add(all_lines[i].ID, win);
+            }
+            else
+            {
+                Debug.Log($"Line{all_lines[i].ID} has ({occurences_in_row}) Occurences in row.");
+            }
+
+            occurences_in_row = 1;
         }
+
+
+        // determine winning lines
+
+        bool WINNER = winning_lines.Count > 0;
+
+        if (WINNER)
+        {
+            foreach (var winline in winning_lines)
+            {
+                Debug.Log("<color=yellow>W</color><color=red>I</color><color=brown>N</color><color=green>N</color><color=cyan>E</color><color=GRAY>R</color> ----> " +
+                    $"LINE {winline.Key} PAYS {winline.Value.occurence} x {Enums.IdToSymbol(winline.Value.symbol)}");
+            }
+        }
+
+        //if(threeInLine1 || threeInLine2 || threeInLine3)
+        //{
+        //    Debug.Log("<color=yellow>W</color><color=red>I</color><color=brown>N</color><color=green>N</color><color=cyan>E</color><color=GRAY>R</color>");
+        //}
 
         current_slot_state_ = SlotState.Waiting;
         Debug.Log("current_slot_state_: SlotState.Waiting");
@@ -299,15 +362,23 @@ public class Slots : MonoBehaviour
 [System.Serializable]
 public class Line
 {
+    public int ID;
     public int x, y, z, w, q;
 
-    public Line(int x_, int y_, int z_, int w_, int q_) {
+    public Line(int id, int x_, int y_, int z_, int w_, int q_) {
+        ID = id;
         x = x_;
         y = y_;
         z = z_;
         w = w_;
         q = q_;
+
+        i_line.Add(x); i_line.Add(y);
+        i_line.Add(z); i_line.Add(w);
+        i_line.Add(q);
     }
 
     public Line() { }
+
+    public List<int> i_line = new List<int>();
 }

@@ -1,6 +1,16 @@
 
 namespace SlotHelper
 {
+
+    public static class Structs
+    {
+        public struct WinningCombination
+        {
+            public int symbol;
+            public int occurence;
+        }
+    }
+
     public static class Consts
     {
         public const string spin_button_trigger_ = "rotate";
@@ -86,6 +96,36 @@ namespace SlotHelper
                 case Symbol.None:
                 default:
                     return -1;
+            }
+        }
+
+        public static Symbol IdToSymbol(int id)
+        {
+            switch (id)
+            {
+                case 1:
+                    return Symbol.Cherry;
+                case 2:
+                    return Symbol.Apple;
+                case 3:
+                    return Symbol.Pear;
+                case 4:
+                    return Symbol.Orange;
+                case 5:
+                    return Symbol.Grapes;
+                case 6:
+                    return Symbol.Watermelon;
+                case 7:
+                    return Symbol.Blueberry;
+                case 8:
+                    return Symbol.Strawberry;
+                case 9:
+                    return Symbol.Wild;
+                case 10:
+                    return Symbol.Scatter;
+                case -1:
+                default:
+                    return Symbol.None;
             }
         }
     }
