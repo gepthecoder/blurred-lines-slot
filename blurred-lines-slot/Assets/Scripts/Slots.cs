@@ -10,6 +10,7 @@ public class Slots : MonoBehaviour
         Waiting = 0,
         Spinning = 1,
         Auto = 2,
+        Winner = 3,
     }
 
     public SlotState current_slot_state_ = SlotState.Waiting;
@@ -165,22 +166,12 @@ public class Slots : MonoBehaviour
             reels[i].spin = false;
             slot_outcome_.Add(reels[i].SetReelOutcome());
         }
-        //allows the machine to be started again
-        startSpin = false;
-        spin_button_.interactable = true;
 
         onCompleted(null);
     }
 
-    private void OnNormalSpinStopped(string errorMessage)
+    protected List<Line> ForgeLines()
     {
-        if (errorMessage != null)
-        {
-            Debug.LogError("Was not able to execute spin: " + errorMessage);
-        }
-
-        // determine outcome
-
         Debug.Log($"{(int)slot_outcome_[0].x}{(int)slot_outcome_[1].x}{(int)slot_outcome_[2].x}{(int)slot_outcome_[3].x}{(int)slot_outcome_[4].x}");
         Debug.Log($"{(int)slot_outcome_[0].y}{(int)slot_outcome_[1].y}{(int)slot_outcome_[2].y}{(int)slot_outcome_[3].y}{(int)slot_outcome_[4].y}");
         Debug.Log($"{(int)slot_outcome_[0].z}{(int)slot_outcome_[1].z}{(int)slot_outcome_[2].z}{(int)slot_outcome_[3].z}{(int)slot_outcome_[4].z}");
@@ -194,6 +185,11 @@ public class Slots : MonoBehaviour
         all_lines.Add(line2);
         all_lines.Add(line3);
 
+        return all_lines;
+    }
+
+    protected Dictionary<int, Structs.WinningCombination> GetWinningLines(List<Line> all_lines)
+    {
         // track lines with symbols for payout
         Dictionary<int, Structs.WinningCombination> winning_lines = new Dictionary<int, Structs.WinningCombination>(); // line ID and WIN (symbol, occurences)
 
@@ -215,7 +211,7 @@ public class Slots : MonoBehaviour
                 if ((all_lines[i].i_line[j] == all_lines[i].i_line[j + 1]) || (all_lines[i].i_line[j] == wild_index) || (all_lines[i].i_line[j + 1] == wild_index))
                 {
                     occurences_in_row++;
-                    if(occurences_in_row >= 3)
+                    if (occurences_in_row >= 3)
                     {
                         bool is_wild_line = false;
                         //full line
@@ -233,10 +229,10 @@ public class Slots : MonoBehaviour
             }
 
             // we have a win
-            if(occurences_in_row >= 3)
+            if (occurences_in_row >= 3)
             {
                 // check wilds as winning symbol
-                if(winning_symbol_id == wild_index)
+                if (winning_symbol_id == wild_index)
                 {
                     List<int> without_wilds = all_lines[i].i_line;
                     without_wilds.RemoveAll(item => item == wild_index);
@@ -255,27 +251,49 @@ public class Slots : MonoBehaviour
             occurences_in_row = 1;
         }
 
+        return winning_lines;
+    }
+
+    private void OnNormalSpinStopped(string errorMessage)
+    {
+        if (errorMessage != null)
+        {
+            Debug.LogError("Was not able to execute spin: " + errorMessage);
+        }
+
+        // determine outcome
+        List<Line> all_lines = ForgeLines();
 
         // determine winning lines
+        Dictionary<int, Structs.WinningCombination> winning_lines = GetWinningLines(all_lines);
 
+        // TODO: calculate payout
+
+        // present win or go to waiting state
         bool WINNER = winning_lines.Count > 0;
 
         if (WINNER)
         {
+            current_slot_state_ = SlotState.Winner;
+            Debug.Log("current_slot_state_: SlotState.Winner");
+
             foreach (var winline in winning_lines)
             {
                 Debug.Log("<color=yellow>W</color><color=red>I</color><color=brown>N</color><color=green>N</color><color=cyan>E</color><color=GRAY>R</color> ----> " +
                     $"LINE {winline.Key} PAYS {winline.Value.occurence} x {Enums.IdToSymbol(winline.Value.symbol)}");
             }
+            // present win: show lines (hide on respin), show win (hide on respin)
+
         }
+        else
+        {
+            //allows the machine to be started again
+            startSpin = false;
+            spin_button_.interactable = true;
 
-        //if(threeInLine1 || threeInLine2 || threeInLine3)
-        //{
-        //    Debug.Log("<color=yellow>W</color><color=red>I</color><color=brown>N</color><color=green>N</color><color=cyan>E</color><color=GRAY>R</color>");
-        //}
-
-        current_slot_state_ = SlotState.Waiting;
-        Debug.Log("current_slot_state_: SlotState.Waiting");
+            current_slot_state_ = SlotState.Waiting;
+            Debug.Log("current_slot_state_: SlotState.Waiting");
+        }
     }
 
     private IEnumerator AutoSpinning(System.Action<string> onCompleted)
