@@ -295,7 +295,7 @@ public class Slots : MonoBehaviour
             for (int j = 0; j < i_line_count; j++)
             {
                 if (j + 1 >= i_line_count) {
-                    Debug.Log($"Break❌: Line {all_lines[i].ID}");
+                    //Debug.Log($"Break❌: Line {all_lines[i].ID}");
                     break;
                 }
 
@@ -307,7 +307,7 @@ public class Slots : MonoBehaviour
                         i_win_symbol = all_lines[i].i_line[i_win_symbol_index];
                     }
                 }
-                Debug.Log($"i_win_symbol: Line {all_lines[i].ID} has current winning symb ({i_win_symbol}) index:({i_win_symbol_index})");
+                //Debug.Log($"i_win_symbol: Line {all_lines[i].ID} has current winning symb ({i_win_symbol}) index:({i_win_symbol_index})");
 
                 if ((all_lines[i].i_line[j] == all_lines[i].i_line[j + 1]) 
                     || (j == 0 && (all_lines[i].i_line[j] == wild_index)) 
@@ -315,7 +315,7 @@ public class Slots : MonoBehaviour
                     || (all_lines[i].i_line[j + 1] == i_win_symbol))
                 {
                     occurences_in_row++;
-                    Debug.Log($"occurences_in_row++ ({occurences_in_row}): Line {all_lines[i].ID} has current winning symb ({i_win_symbol}) index:({i_win_symbol_index})");
+                    //Debug.Log($"occurences_in_row++ ({occurences_in_row}): Line {all_lines[i].ID} has current winning symb ({i_win_symbol}) index:({i_win_symbol_index})");
 
                     if (occurences_in_row >= 3)
                     {
@@ -338,7 +338,7 @@ public class Slots : MonoBehaviour
             // we have a win
             if (occurences_in_row >= 3)
             {
-                Debug.Log($"we have a win");
+                //Debug.Log($"we have a win");
 
                 // check wilds as winning symbol
                 if (winning_symbol_id == wild_index && !is_wild_line)
