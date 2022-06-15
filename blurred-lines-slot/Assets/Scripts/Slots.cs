@@ -323,9 +323,11 @@ public class Slots : MonoBehaviour
                         if (occurences_in_row == 5)
                         {
                             // wild line check
-                            Line wildline = new Line(777, 9, 9, 9, 9, 9);
-                            is_wild_line = wildline.i_line.Equals(all_lines[i].i_line);
-
+                            is_wild_line = ((all_lines[i].i_line[0] == wild_index)
+                                && (all_lines[i].i_line[0] == all_lines[i].i_line[1])
+                                && (all_lines[i].i_line[1] == all_lines[i].i_line[2])
+                                && (all_lines[i].i_line[2] == all_lines[i].i_line[3])
+                                && (all_lines[i].i_line[3] == all_lines[i].i_line[4]));
                             break;
                         }
 
@@ -338,7 +340,7 @@ public class Slots : MonoBehaviour
             // we have a win
             if (occurences_in_row >= 3)
             {
-                //Debug.Log($"we have a win");
+                //Debug.Log($"we have a win.. is wild line:  " + is_wild_line);
 
                 // check wilds as winning symbol
                 if (winning_symbol_id == wild_index && !is_wild_line)
@@ -534,9 +536,7 @@ public class Line
         w = w_;
         q = q_;
 
-        i_line.Add(x); i_line.Add(y);
-        i_line.Add(z); i_line.Add(w);
-        i_line.Add(q);
+        i_line.Add(x); i_line.Add(y); i_line.Add(z); i_line.Add(w); i_line.Add(q);
     }
 
     public Line() { }
