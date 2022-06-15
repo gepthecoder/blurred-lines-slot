@@ -17,18 +17,25 @@ public class Slots : MonoBehaviour
 
     [SerializeField] private Button spin_button_;
     private Animator spin_btn_anime_;
-
+    [Space(5)]
     public Reel[] reels;
-    bool startSpin;
-
+    [Space(5)]
     [SerializeField] private List<Symbol> all_symbols_;
+    [Space(5)]
+    [SerializeField] private List<LineVFX> all_vfx_lines_;
+    [Space(5)]
+    [SerializeField] private List<Text> win_amount_texts_;
 
+    [SerializeField] private GameObject present_win_seq_;
+
+    private bool startSpin;
     private bool is_auto_play_;
     private int num_auto_spins_;
     private bool is_last_auto_spin_forced_;
+
     public int GetNumOfAutoSpinsLeft() { return num_auto_spins_; }
 
-    List<Vector3> slot_outcome_ = new List<Vector3>();
+    private List<Vector3> slot_outcome_ = new List<Vector3>();
 
     private void Awake()
     {
@@ -70,6 +77,8 @@ public class Slots : MonoBehaviour
             Debug.Log("current_slot_state_: SlotState.Spinning");
             slot_outcome_.Clear();
 
+            ClearSlotScreenVfx();
+
             StartCoroutine(Spinning(OnNormalSpinStopped));
         }       
     }
@@ -85,10 +94,27 @@ public class Slots : MonoBehaviour
             Debug.Log("current_slot_state_: SlotState.Auto");
             slot_outcome_.Clear();
 
+            ClearSlotScreenVfx();
+
             AutoSpins(num_spins);
         }
         else { 
             success = false;
+        }
+    }
+
+    private void ClearSlotScreenVfx()
+    {
+        // clear win screen
+        present_win_seq_.SetActive(false);
+        foreach (LineVFX lineVfx in all_vfx_lines_)
+        {
+            lineVfx.DisableLine();
+        }
+
+        foreach (Text txt in win_amount_texts_)
+        {
+            txt.text = "";
         }
     }
 
@@ -103,21 +129,30 @@ public class Slots : MonoBehaviour
         startSpin = true;
         spin_button_.interactable = false;
         spin_btn_anime_.SetTrigger(Consts.spin_button_trigger_);
-        StartCoroutine(AutoSpinning(OnSpinFinnished));
 
+        slot_outcome_.Clear();
+        StartCoroutine(AutoSpinning(OnSpinFinnished));
     }
 
-    private void OnSpinFinnished(string errorMessage) // autospins workflow
+    // TODO: DRY violation
+    private IEnumerator DelayNextAutoSpin(System.Action<string> onCompleted, float delay)
+    {
+        // TODO: maybe start seq of all wins
+        yield return new WaitForSeconds(delay);
+        onCompleted(null);
+    }
+
+    private void OnDelayedAutoSpinFinnished(string errorMessage)
     {
         if (errorMessage != null)
         {
-            Debug.LogError("Was not able to execute spin: " + errorMessage);
+            Debug.LogError("Was not able to finalize reward: " + errorMessage);
         }
 
-
-        if (is_auto_play_) { 
-
-            if(num_auto_spins_ <= 0 || is_last_auto_spin_forced_) {
+        if (is_auto_play_)
+        {
+            if (num_auto_spins_ <= 0 || is_last_auto_spin_forced_)
+            {
                 //stop loop 
                 is_auto_play_ = false;
                 is_last_auto_spin_forced_ = false;
@@ -136,10 +171,58 @@ public class Slots : MonoBehaviour
                     startSpin = true;
                     spin_button_.interactable = false;
                     spin_btn_anime_.SetTrigger(Consts.spin_button_trigger_);
+
+                    ClearSlotScreenVfx();
+
+                    slot_outcome_.Clear();
                     StartCoroutine(AutoSpinning(OnSpinFinnished));
                 }
             }
         }
+    }
+
+    private void OnSpinFinnished(string errorMessage) // autospins workflow
+    {
+        if (errorMessage != null)
+        {
+            Debug.LogError("Was not able to execute spin: " + errorMessage);
+        }
+
+        // determine outcome
+        List<Line> all_lines = ForgeLines();
+
+        // determine winning lines
+        List<Structs.WinningCombination> winning_lines = GetWinningLines(all_lines);
+
+        // TODO: calculate payout
+
+        // present win or go to waiting state
+        bool WINNER = winning_lines.Count > 0;
+
+        if (WINNER)
+        {
+            current_slot_state_ = SlotState.Winner;
+            Debug.Log("current_slot_state_: SlotState.Winner");
+
+            present_win_seq_.SetActive(true);
+
+            foreach (var winline in winning_lines)
+            {
+                Debug.Log("<color=yellow>W</color><color=red>I</color><color=brown>N</color><color=green>N</color><color=cyan>E</color><color=GRAY>R</color> ----> " +
+                    $"LINE {winline.line_id} PAYS {winline.occurence} x {Enums.IdToSymbol(winline.symbol)}");
+                win_amount_texts_[winline.line_id-1].text = $"{winline.occurence} x {Enums.IdToSymbol(winline.symbol)}";
+
+                foreach (LineVFX lineVfx in all_vfx_lines_)
+                {
+                    if (lineVfx.line_id_ == winline.line_id)
+                    {
+                        lineVfx.EnableLine();
+                    }
+                }
+            }
+        }
+
+        StartCoroutine(DelayNextAutoSpin(OnDelayedAutoSpinFinnished, WINNER ? 2f : 0.5f));
     }
 
     public void StopAutoSpins(bool force)
@@ -188,10 +271,10 @@ public class Slots : MonoBehaviour
         return all_lines;
     }
 
-    protected Dictionary<int, Structs.WinningCombination> GetWinningLines(List<Line> all_lines)
+    protected List<Structs.WinningCombination> GetWinningLines(List<Line> all_lines)
     {
         // track lines with symbols for payout
-        Dictionary<int, Structs.WinningCombination> winning_lines = new Dictionary<int, Structs.WinningCombination>(); // line ID and WIN (symbol, occurences)
+        List<Structs.WinningCombination> winning_lines = new List<Structs.WinningCombination>(); // line ID and WIN (symbol, occurences)
 
         // straight lines + wilds
         int wild_index = (int)Enums.SymbolToId(Enums.Symbol.Wild);
@@ -199,27 +282,51 @@ public class Slots : MonoBehaviour
 
         int occurences_in_row = 1; //one is always
         int winning_symbol_id = -1;
+        int i_win_symbol;
+        int i_win_symbol_index = 0;
+
+        bool is_wild_line = false;
 
         for (int i = 0; i < all_lines.Count; i++)
         {
             int i_line_count = all_lines[i].i_line.Count;
+            i_win_symbol_index = 0;
 
             for (int j = 0; j < i_line_count; j++)
             {
-                if (j + 1 > i_line_count) break;
+                if (j + 1 >= i_line_count) {
+                    Debug.Log($"Break❌: Line {all_lines[i].ID}");
+                    break;
+                }
 
-                if ((all_lines[i].i_line[j] == all_lines[i].i_line[j + 1]) || (all_lines[i].i_line[j] == wild_index) || (all_lines[i].i_line[j + 1] == wild_index))
+                i_win_symbol = all_lines[i].i_line[i_win_symbol_index];
+                if(i_win_symbol == wild_index) { 
+                    if(i_win_symbol_index < i_line_count)
+                    {
+                        i_win_symbol_index++;
+                        i_win_symbol = all_lines[i].i_line[i_win_symbol_index];
+                    }
+                }
+                Debug.Log($"i_win_symbol: Line {all_lines[i].ID} has current winning symb ({i_win_symbol}) index:({i_win_symbol_index})");
+
+                if ((all_lines[i].i_line[j] == all_lines[i].i_line[j + 1]) 
+                    || (j == 0 && (all_lines[i].i_line[j] == wild_index)) 
+                    || (all_lines[i].i_line[j + 1] == wild_index) 
+                    || (all_lines[i].i_line[j + 1] == i_win_symbol))
                 {
                     occurences_in_row++;
+                    Debug.Log($"occurences_in_row++ ({occurences_in_row}): Line {all_lines[i].ID} has current winning symb ({i_win_symbol}) index:({i_win_symbol_index})");
+
                     if (occurences_in_row >= 3)
                     {
-                        bool is_wild_line = false;
                         //full line
                         if (occurences_in_row == 5)
                         {
                             // wild line check
                             Line wildline = new Line(777, 9, 9, 9, 9, 9);
                             is_wild_line = wildline.i_line.Equals(all_lines[i].i_line);
+
+                            break;
                         }
 
                         winning_symbol_id = is_wild_line ? wild_index : all_lines[i].i_line[0];
@@ -231,8 +338,10 @@ public class Slots : MonoBehaviour
             // we have a win
             if (occurences_in_row >= 3)
             {
+                Debug.Log($"we have a win");
+
                 // check wilds as winning symbol
-                if (winning_symbol_id == wild_index)
+                if (winning_symbol_id == wild_index && !is_wild_line)
                 {
                     List<int> without_wilds = all_lines[i].i_line;
                     without_wilds.RemoveAll(item => item == wild_index);
@@ -241,17 +350,40 @@ public class Slots : MonoBehaviour
                 Structs.WinningCombination win = new Structs.WinningCombination();
                 win.symbol = winning_symbol_id;
                 win.occurence = occurences_in_row;
-                winning_lines.Add(all_lines[i].ID, win);
+                win.line_id = all_lines[i].ID;
+                winning_lines.Add(win);
             }
             else
             {
-                Debug.Log($"Line{all_lines[i].ID} has ({occurences_in_row}) Occurences in row.");
+                Debug.Log($"Line{all_lines[i].ID} has ({occurences_in_row}) occurences in row.");
             }
 
             occurences_in_row = 1;
         }
 
         return winning_lines;
+    }
+
+    private IEnumerator DelayNextSpin(System.Action<string> onCompleted)
+    {
+        // TODO: maybe start seq of all wins
+        yield return new WaitForSeconds(2f);
+        onCompleted(null);
+    }
+
+    private void OnDelayedSpinFinnished(string errorMessage)
+    {
+        if (errorMessage != null)
+        {
+            Debug.LogError("Was not able to finalize reward: " + errorMessage);
+        }
+
+        //allows the machine to be started again
+        startSpin = false;
+        spin_button_.interactable = true;
+
+        current_slot_state_ = SlotState.Waiting;
+        Debug.Log("current_slot_state_: SlotState.Waiting");
     }
 
     private void OnNormalSpinStopped(string errorMessage)
@@ -265,7 +397,7 @@ public class Slots : MonoBehaviour
         List<Line> all_lines = ForgeLines();
 
         // determine winning lines
-        Dictionary<int, Structs.WinningCombination> winning_lines = GetWinningLines(all_lines);
+        List<Structs.WinningCombination> winning_lines = GetWinningLines(all_lines);
 
         // TODO: calculate payout
 
@@ -276,14 +408,25 @@ public class Slots : MonoBehaviour
         {
             current_slot_state_ = SlotState.Winner;
             Debug.Log("current_slot_state_: SlotState.Winner");
+            
+            present_win_seq_.SetActive(true);
 
             foreach (var winline in winning_lines)
             {
                 Debug.Log("<color=yellow>W</color><color=red>I</color><color=brown>N</color><color=green>N</color><color=cyan>E</color><color=GRAY>R</color> ----> " +
-                    $"LINE {winline.Key} PAYS {winline.Value.occurence} x {Enums.IdToSymbol(winline.Value.symbol)}");
-            }
-            // present win: show lines (hide on respin), show win (hide on respin)
+                    $"LINE {winline.line_id} PAYS {winline.occurence} x {Enums.IdToSymbol(winline.symbol)}");
+                win_amount_texts_[winline.line_id-1].text = $"{winline.occurence} x {Enums.IdToSymbol(winline.symbol)}";
 
+                foreach (LineVFX lineVfx in all_vfx_lines_)
+                {
+                    if(lineVfx.line_id_ == winline.line_id)
+                    {
+                        lineVfx.EnableLine();
+                    }
+                }
+            }
+
+            StartCoroutine(DelayNextSpin(OnDelayedSpinFinnished));
         }
         else
         {
