@@ -17,8 +17,8 @@ public class AutoSpinsManager : MonoBehaviour
     [SerializeField] private Text auto_spin_num_txt_;
 
     [SerializeField] private Button start_auto_spins_btn_;
+    [SerializeField] private Image auto_play_symbol_img_;
     private Image auto_play_btn_img_;
-    private Text auto_play_btn_txt_;
 
     [SerializeField] private Text auto_spin_counter_txt_;
 
@@ -38,7 +38,7 @@ public class AutoSpinsManager : MonoBehaviour
                 // stop auto spins
                 slot_manager_.StopAutoSpins(true);
                 auto_play_btn_img_.sprite = UiManager.instance_.GetAutoPlayBtnSprite();
-                auto_play_btn_txt_.text = Consts.auto_spin_text_normal_;
+                auto_play_symbol_img_.sprite = UiManager.instance_.GetAutoPlaySymbolStart();
             }
             else { OpenCloseAutoSpinsUi(); }
         });
@@ -48,7 +48,6 @@ public class AutoSpinsManager : MonoBehaviour
         start_auto_spins_btn_.onClick.AddListener(StartAutoSpins);
 
         auto_play_btn_img_ = auto_play_btn_.GetComponent<Image>();
-        auto_play_btn_txt_ = auto_play_btn_.GetComponentInChildren<Text>();
 
         current_set_spins_ = min_auto_spins_;
         auto_spin_counter_txt_.text = "";
@@ -63,7 +62,8 @@ public class AutoSpinsManager : MonoBehaviour
                 auto_spins_started_ = false;
                 auto_spin_counter_txt_.text = "";
                 auto_play_btn_img_.sprite = UiManager.instance_.GetAutoPlayBtnSprite();
-                auto_play_btn_txt_.text = Consts.auto_spin_text_normal_;
+                auto_play_symbol_img_.sprite = UiManager.instance_.GetAutoPlaySymbolStart();
+
             }
             else { auto_spin_counter_txt_.text = $"{auto_spins_left}/{current_set_spins_}"; }
         }
@@ -108,7 +108,7 @@ public class AutoSpinsManager : MonoBehaviour
             Debug.Log("Start auto spins: Success!!");
             auto_spins_started_ = true;
             auto_play_btn_img_.sprite = UiManager.instance_.GetStopAutoPlayBtnSprite();
-            auto_play_btn_txt_.text = Consts.auto_spin_text_stop_;
+            auto_play_symbol_img_.sprite = UiManager.instance_.GetAutoPlaySymbolStop();
         }
         else
         {

@@ -33,7 +33,10 @@ public class Slots : MonoBehaviour
     private int num_auto_spins_;
     private bool is_last_auto_spin_forced_;
 
+    private bool is_turbo_spin_enabled_ = false;
+
     public int GetNumOfAutoSpinsLeft() { return num_auto_spins_; }
+    public void SetTurboSpinStatus(bool enabled) { is_turbo_spin_enabled_ = enabled; }
 
     private List<Vector3> slot_outcome_ = new List<Vector3>();
 
@@ -245,7 +248,7 @@ public class Slots : MonoBehaviour
         for (int i = 0; i < reels.Length; i++)
         {
             //allow the reel to spin for a random amount of time then stop
-            yield return new WaitForSeconds(Random.Range(1,3));
+            yield return new WaitForSeconds(is_turbo_spin_enabled_ ? Random.Range(.5f, .7f) : Random.Range(1,3));
             reels[i].spin = false;
             slot_outcome_.Add(reels[i].SetReelOutcome());
         }
@@ -454,7 +457,7 @@ public class Slots : MonoBehaviour
         for (int i = 0; i < reels.Length; i++)
         {
             //allow the reel to spin for a random amount of time then stop
-            yield return new WaitForSeconds(Random.Range(1, 3));
+            yield return new WaitForSeconds(is_turbo_spin_enabled_ ? Random.Range(.5f, .7f) : Random.Range(1, 3));
             reels[i].spin = false;
             slot_outcome_.Add(reels[i].SetReelOutcome());
         }
