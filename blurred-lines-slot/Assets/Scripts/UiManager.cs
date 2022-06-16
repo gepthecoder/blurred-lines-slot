@@ -27,9 +27,26 @@ public class UiManager : MonoBehaviour
     public Sprite GetTurboModeBtnSprite() { return turbo_mode_btn_sprite_; }
     public Sprite GetStopTurboModeBtnSprite() { return stop_turbo_mode_btn_sprite_; }
 
+    [Header("Music & Sounds")]
+    [Space(5)]
+    [SerializeField] private Button sound_on_off_btn_;
+    [SerializeField] private Image sound_on_off_symbol_img_;
+    [SerializeField] private Sprite sound_on_symbol_;
+    [SerializeField] private Sprite sound_off_symbol_;
+
     private void Awake()
     {
         instance_ = this;
+
+        sound_on_off_btn_.onClick.AddListener(OnSoundOnOffClicked);
+    }
+
+    private void OnSoundOnOffClicked()
+    {
+        bool muted;
+        AudioManager.instance_.HandleAudio(out muted);
+
+        sound_on_off_symbol_img_.sprite = muted ? sound_off_symbol_ : sound_on_symbol_;
     }
 
 }
