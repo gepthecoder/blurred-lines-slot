@@ -6,16 +6,17 @@ using SlotHelper;
 
 public class Reel : MonoBehaviour
 {
+    public int id;
+
     [SerializeField] private Vector3 reel_symbol_ids_;
+
+    public List<Transform> reel_symbol_transforms_;
 
     public bool spin;
     int speed;
 
     void Start()
     {
-        //foreach (Transform image in transform)
-        //    Debug.Log("image name: " + image.localPosition.y);
-
         spin = false;
         speed = 5500;
     }
@@ -40,7 +41,7 @@ public class Reel : MonoBehaviour
     public List<int> SetReelOutcome()
     {
         List<int> parts = new List<int>();
-        Dictionary<int, string> dict = new Dictionary<int, string>();
+        Dictionary<int, Transform> dict = new Dictionary<int, Transform>();
 
         // ADD ALL OF THE VALUES FOR THE ORIGINAL Y POSITION
         parts.Add(1200);
@@ -58,21 +59,27 @@ public class Reel : MonoBehaviour
         {
             int rand = Random.Range(0, parts.Count);
 
-            dict.Add(parts[rand], image.name);
+            dict.Add(parts[rand], image);
 
             image.transform.position = new Vector3(image.transform.position.x, parts[rand] + transform.parent.parent.GetComponent<RectTransform>().transform.position.y, image.transform.position.z);
             parts.RemoveAt(rand);
         }
 
+        reel_symbol_transforms_ = new List<Transform>();
         // store visible symbols
         List<int> reel_symbol_ids_ = new List<int>();
-        string symbol_name;
-        dict.TryGetValue(300, out symbol_name);
-        reel_symbol_ids_.Add((Enums.SymbolToId(Enums.StringToSymbol(symbol_name))));
-        dict.TryGetValue(0, out symbol_name);
-        reel_symbol_ids_.Add(Enums.SymbolToId(Enums.StringToSymbol(symbol_name)));
-        dict.TryGetValue(-300, out symbol_name);
-        reel_symbol_ids_.Add(Enums.SymbolToId(Enums.StringToSymbol(symbol_name)));
+        Transform _symbol_;
+        dict.TryGetValue(300, out _symbol_);
+        reel_symbol_ids_.Add((Enums.SymbolToId(Enums.StringToSymbol(_symbol_.name))));
+        reel_symbol_transforms_.Add(_symbol_);
+
+        dict.TryGetValue(0, out _symbol_);
+        reel_symbol_ids_.Add(Enums.SymbolToId(Enums.StringToSymbol(_symbol_.name)));
+        reel_symbol_transforms_.Add(_symbol_);
+
+        dict.TryGetValue(-300, out _symbol_);
+        reel_symbol_ids_.Add(Enums.SymbolToId(Enums.StringToSymbol(_symbol_.name)));
+        reel_symbol_transforms_.Add(_symbol_);
 
         // emmit symbols ids
         return reel_symbol_ids_;
@@ -100,7 +107,7 @@ public class Reel : MonoBehaviour
         {
             Debug.Assert(index <= symbols.Count);
 
-            image.GetComponent<Image>().sprite = symbols[index]._SYMBOL_;
+            image.GetComponentInChildren<Image>().sprite = symbols[index]._SYMBOL_;
             image.name = symbols[index]._NAME_;
 
             int rand = Random.Range(0, parts.Count);

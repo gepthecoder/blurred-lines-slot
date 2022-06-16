@@ -23,8 +23,6 @@ public class Slots : MonoBehaviour
     [Space(5)]
     [SerializeField] private List<Symbol> all_symbols_;
     [Space(5)]
-    [SerializeField] private List<LineVFX> all_vfx_lines_;
-    [Space(5)]
     [SerializeField] private List<Text> win_amount_texts_;
 
     [SerializeField] private GameObject present_win_seq_;
@@ -111,9 +109,14 @@ public class Slots : MonoBehaviour
     {
         // clear win screen
         present_win_seq_.SetActive(false);
-        foreach (LineVFX lineVfx in all_vfx_lines_)
+        foreach (Reel reel in reels)
         {
-            lineVfx.DisableLine();
+            foreach (Transform symbol in reel.reel_symbol_transforms_)
+            {
+                Animator anime = symbol.GetComponentInChildren<Animator>();
+                if (anime) { anime.SetBool("win", false); }
+                anime.transform.localRotation = Quaternion.Euler(symbol.localRotation.x, symbol.localRotation.y, 0);
+            }
         }
 
         foreach (Text txt in win_amount_texts_)
@@ -205,10 +208,33 @@ public class Slots : MonoBehaviour
             current_slot_state_ = SlotState.Winner;
             Debug.Log("current_slot_state_: SlotState.Winner");
 
+            present_win_seq_.SetActive(true);
+            List<int> display_slots = new List<int>() { 0, 1, 2 };
+
             foreach (var winways in winning_ways)
             {
                 Debug.Log("<color=yellow>W</color><color=red>I</color><color=brown>N</color><color=green>N</color><color=cyan>E</color><color=GRAY>R</color> ----> " +
-                    $"SYMBOL {winways.win_symbol_id} PAYS {winways.ways} x WAYS");
+                    $"SYMBOL {winways.win_symbol_id} PAYS {winways.ways}WAYS x {winways.streak} x Symbol Amount");
+
+                // animate winning text
+                int slot = Random.Range(0, display_slots.Count);
+                win_amount_texts_[slot].text = $"{winways.ways}Ways x {winways.streak} x {Enums.IdToSymbol(winways.win_symbol_id)}";
+                display_slots.RemoveAt(slot);
+
+                // animate winning (visible) symbols till streak over
+                foreach (Reel reel in reels)
+                {
+                    if (reel.id > winways.streak) { break; }
+
+                    foreach (Transform symbol in reel.reel_symbol_transforms_)
+                    {
+                        if (symbol.name == Enums.SymbolToString(Enums.IdToSymbol(winways.win_symbol_id)))
+                        {
+                            Animator anime = symbol.GetComponentInChildren<Animator>();
+                            if (anime) { anime.SetBool("win", true); }
+                        }
+                    }
+                }
             }
         }
 
@@ -249,7 +275,7 @@ public class Slots : MonoBehaviour
         // track winning symbols and ways for payout
         List<Structs.WinningCombination> winning_ways = new List<Structs.WinningCombination>(); // symbol ID and WAYS
 
-        // all permutations + wilds
+        // all permutations + TODO: wilds
         int wild_index = (int)Enums.SymbolToId(Enums.Symbol.Wild);
         Debug.Log("Wild Index: " + wild_index);
 
@@ -306,6 +332,7 @@ public class Slots : MonoBehaviour
                 Structs.WinningCombination winning_combo = new Structs.WinningCombination();
                 winning_combo.win_symbol_id = symbol_id;
                 winning_combo.ways = total_ways;
+                winning_combo.streak = i_reel + 1;
 
                 winning_ways.Add(winning_combo);
             }
@@ -356,27 +383,34 @@ public class Slots : MonoBehaviour
             current_slot_state_ = SlotState.Winner;
             Debug.Log("current_slot_state_: SlotState.Winner");
 
+            present_win_seq_.SetActive(true);
+            List<int> display_slots = new List<int>() { 0, 1, 2 };
+
             foreach (var winways in winning_ways)
             {
                 Debug.Log("<color=yellow>W</color><color=red>I</color><color=brown>N</color><color=green>N</color><color=cyan>E</color><color=GRAY>R</color> ----> " +
-                    $"SYMBOL {winways.win_symbol_id} PAYS {winways.ways} x WAYS");
+                    $"SYMBOL {winways.win_symbol_id} PAYS {winways.ways}WAYS x {winways.streak} x Symbol Amount");
+
+                // animate winning text
+                int slot = Random.Range(0, display_slots.Count);
+                win_amount_texts_[slot].text = $"{winways.ways}Ways x {winways.streak} x {Enums.IdToSymbol(winways.win_symbol_id)}";
+                display_slots.RemoveAt(slot);
+
+                // animate winning (visible) symbols till streak over
+                foreach(Reel reel in reels)
+                {
+                    if(reel.id > winways.streak) { break; }
+
+                    foreach (Transform symbol in reel.reel_symbol_transforms_)
+                    {
+                        if(symbol.name == Enums.SymbolToString(Enums.IdToSymbol(winways.win_symbol_id))){
+                            Animator anime = symbol.GetComponentInChildren<Animator>();
+                            if (anime) { anime.SetBool("win", true); }
+                        }
+                    }
+                }
+
             }
-            //present_win_seq_.SetActive(true);
-
-            //foreach (var winline in winning_lines)
-            //{
-            //    Debug.Log("<color=yellow>W</color><color=red>I</color><color=brown>N</color><color=green>N</color><color=cyan>E</color><color=GRAY>R</color> ----> " +
-            //        $"LINE {winline.line_id} PAYS {winline.occurence} x {Enums.IdToSymbol(winline.symbol)}");
-            //    win_amount_texts_[winline.line_id-1].text = $"{winline.occurence} x {Enums.IdToSymbol(winline.symbol)}";
-
-            //    foreach (LineVFX lineVfx in all_vfx_lines_)
-            //    {
-            //        if(lineVfx.line_id_ == winline.line_id)
-            //        {
-            //            lineVfx.EnableLine();
-            //        }
-            //    }
-            //}
 
             StartCoroutine(DelayNextSpin(OnDelayedSpinFinnished));
         }

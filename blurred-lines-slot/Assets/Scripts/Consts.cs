@@ -8,6 +8,7 @@ namespace SlotHelper
         {
             public int win_symbol_id;
             public int ways;
+            public int streak;
         }
 
         public struct ReelSymbols
@@ -71,6 +72,37 @@ namespace SlotHelper
                     return Symbol.Scatter;
                 default:
                     return Symbol.None;
+            }
+        }
+
+        public static string SymbolToString(Symbol symbol)
+        {
+            switch (symbol)
+            {
+                case Symbol.Cherry:
+                    return "Cherry";
+                case Symbol.Apple:
+                    return "Apple";
+                case Symbol.Pear:
+                    return "Pear";
+                case Symbol.Orange:
+                    return "Orange";
+                case Symbol.Grapes:
+                    return "Grapes";
+                case Symbol.Watermelon:
+                    return "Watermelon";
+                case Symbol.Blueberry:
+                    return "Blueberry";
+                case Symbol.Strawberry:
+                    return "Strawberry";
+                case Symbol.Wild:
+                    return "Wild";
+                case Symbol.Scatter:
+                    return "Scatter";
+
+                case Symbol.None:
+                default:
+                    return "";
             }
         }
 
