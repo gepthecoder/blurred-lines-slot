@@ -37,7 +37,7 @@ public class Reel : MonoBehaviour
     }
 
     //once the reel finishes spinning the images will be placed in a random position
-    public Vector3 SetReelOutcome()
+    public List<int> SetReelOutcome()
     {
         List<int> parts = new List<int>();
         Dictionary<int, string> dict = new Dictionary<int, string>();
@@ -65,14 +65,14 @@ public class Reel : MonoBehaviour
         }
 
         // store visible symbols
-        reel_symbol_ids_ = new Vector3();
+        List<int> reel_symbol_ids_ = new List<int>();
         string symbol_name;
         dict.TryGetValue(300, out symbol_name);
-        reel_symbol_ids_.x = (Enums.SymbolToId(Enums.StringToSymbol(symbol_name)));
+        reel_symbol_ids_.Add((Enums.SymbolToId(Enums.StringToSymbol(symbol_name))));
         dict.TryGetValue(0, out symbol_name);
-        reel_symbol_ids_.y = (Enums.SymbolToId(Enums.StringToSymbol(symbol_name)));
+        reel_symbol_ids_.Add(Enums.SymbolToId(Enums.StringToSymbol(symbol_name)));
         dict.TryGetValue(-300, out symbol_name);
-        reel_symbol_ids_.z = (Enums.SymbolToId(Enums.StringToSymbol(symbol_name)));
+        reel_symbol_ids_.Add(Enums.SymbolToId(Enums.StringToSymbol(symbol_name)));
 
         // emmit symbols ids
         return reel_symbol_ids_;

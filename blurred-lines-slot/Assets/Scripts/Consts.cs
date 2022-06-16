@@ -6,9 +6,14 @@ namespace SlotHelper
     {
         public struct WinningCombination
         {
-            public int line_id;
-            public int symbol;
-            public int occurence;
+            public int win_symbol_id;
+            public int ways;
+        }
+
+        public struct ReelSymbols
+        {
+            public int symbol_id;
+            public int occurences;
         }
     }
 
