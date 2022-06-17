@@ -9,6 +9,7 @@ namespace SlotHelper
             public int win_symbol_id;
             public int ways;
             public int streak;
+            public bool wilds;
         }
 
         public struct ReelSymbols

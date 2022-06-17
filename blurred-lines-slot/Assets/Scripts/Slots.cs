@@ -307,6 +307,7 @@ public class Slots : MonoBehaviour
             int symbol_id = reelSymbol.symbol_id;
             int total_ways = reelSymbol.occurences;
             int i_reel = 0; // i_reel >= 2 win req
+            bool wilds = false;
 
             for (int i = 1; i < stacked_symbols.Count; i++)
             {
@@ -319,6 +320,7 @@ public class Slots : MonoBehaviour
                         total_ways *= symbol.occurences;
                         i_reel++;
                         next_symbol_found = true;
+                        wilds = symbol.symbol_id == wild_index && !wilds;
                         break;
                     }
                 }
@@ -333,6 +335,7 @@ public class Slots : MonoBehaviour
                 winning_combo.win_symbol_id = symbol_id;
                 winning_combo.ways = total_ways;
                 winning_combo.streak = i_reel + 1;
+                winning_combo.wilds = wilds;
 
                 winning_ways.Add(winning_combo);
             }
@@ -403,7 +406,8 @@ public class Slots : MonoBehaviour
 
                     foreach (Transform symbol in reel.reel_symbol_transforms_)
                     {
-                        if(symbol.name == Enums.SymbolToString(Enums.IdToSymbol(winways.win_symbol_id))){
+                        if((symbol.name == Enums.SymbolToString(Enums.IdToSymbol(winways.win_symbol_id))) || (symbol.name == Enums.SymbolToString(Enums.Symbol.Wild) && winways.wilds))
+                        {
                             Animator anime = symbol.GetComponentInChildren<Animator>();
                             if (anime) { anime.SetBool("win", true); }
                         }
