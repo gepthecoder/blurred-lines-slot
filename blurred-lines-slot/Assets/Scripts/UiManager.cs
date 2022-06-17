@@ -34,11 +34,29 @@ public class UiManager : MonoBehaviour
     [SerializeField] private Sprite sound_on_symbol_;
     [SerializeField] private Sprite sound_off_symbol_;
 
+    [Header("Info")]
+    [Space(5)]
+    [SerializeField] private GameObject info_section_ui_;
+
+    [SerializeField] private Button show_info_btn_;
+    [SerializeField] private Button close_info_btn_;
+
+    private bool is_info_shown_ = false;
+
     private void Awake()
     {
         instance_ = this;
 
         sound_on_off_btn_.onClick.AddListener(OnSoundOnOffClicked);
+
+        show_info_btn_.onClick.AddListener(ShowHideInfoUi);
+        close_info_btn_.onClick.AddListener(ShowHideInfoUi);
+    }
+
+    private void ShowHideInfoUi()
+    {
+        is_info_shown_ = !is_info_shown_;
+        info_section_ui_.SetActive(is_info_shown_);
     }
 
     private void OnSoundOnOffClicked()
