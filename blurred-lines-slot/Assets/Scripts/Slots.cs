@@ -81,6 +81,9 @@ public class Slots : MonoBehaviour
 
             ClearSlotScreenVfx();
 
+            AudioManager.instance_.PlayWinSound(false);
+            AudioManager.instance_.PlaySpinSound();
+
             StartCoroutine(Spinning(OnNormalSpinStopped));
         }       
     }
@@ -138,6 +141,10 @@ public class Slots : MonoBehaviour
         spin_btn_anime_.SetTrigger(Consts.spin_button_trigger_);
 
         slot_outcome_.Clear();
+
+        AudioManager.instance_.PlayWinSound(false);
+        AudioManager.instance_.PlaySpinSound();
+
         StartCoroutine(AutoSpinning(OnSpinFinnished));
     }
 
@@ -182,6 +189,10 @@ public class Slots : MonoBehaviour
                     ClearSlotScreenVfx();
 
                     slot_outcome_.Clear();
+
+                    AudioManager.instance_.PlayWinSound(false);
+                    AudioManager.instance_.PlaySpinSound();
+
                     StartCoroutine(AutoSpinning(OnSpinFinnished));
                 }
             }
@@ -210,6 +221,8 @@ public class Slots : MonoBehaviour
 
             present_win_seq_.SetActive(true);
             List<int> display_slots = new List<int>() { 0, 1, 2 };
+
+            AudioManager.instance_.PlayWinSound(true);
 
             foreach (var winways in winning_ways)
             {
@@ -264,6 +277,7 @@ public class Slots : MonoBehaviour
             yield return new WaitForSeconds(is_turbo_spin_enabled_ ? Random.Range(.5f, .7f) : Random.Range(1,3));
             reels[i].spin = false;
             slot_outcome_.Add(reels[i].SetReelOutcome());
+            AudioManager.instance_.PlayReelStopSound();
         }
 
         onCompleted(null);
@@ -320,7 +334,10 @@ public class Slots : MonoBehaviour
                         total_ways *= symbol.occurences;
                         i_reel++;
                         next_symbol_found = true;
-                        wilds = symbol.symbol_id == wild_index && !wilds;
+                        if (!wilds)
+                        {
+                            wilds = symbol.symbol_id == wild_index;
+                        }
                         break;
                     }
                 }
@@ -389,6 +406,8 @@ public class Slots : MonoBehaviour
             present_win_seq_.SetActive(true);
             List<int> display_slots = new List<int>() { 0, 1, 2 };
 
+            AudioManager.instance_.PlayWinSound(true);
+
             foreach (var winways in winning_ways)
             {
                 Debug.Log("<color=yellow>W</color><color=red>I</color><color=brown>N</color><color=green>N</color><color=cyan>E</color><color=GRAY>R</color> ----> " +
@@ -396,7 +415,7 @@ public class Slots : MonoBehaviour
 
                 // animate winning text
                 int slot = Random.Range(0, display_slots.Count);
-                win_amount_texts_[slot].text = $"{winways.ways}Ways x {winways.streak} x {Enums.IdToSymbol(winways.win_symbol_id)}";
+                win_amount_texts_[display_slots[slot]].text = $"{winways.ways}Ways x {winways.streak} x {Enums.IdToSymbol(winways.win_symbol_id)}";
                 display_slots.RemoveAt(slot);
 
                 // animate winning (visible) symbols till streak over
@@ -445,6 +464,7 @@ public class Slots : MonoBehaviour
             yield return new WaitForSeconds(is_turbo_spin_enabled_ ? Random.Range(.5f, .7f) : Random.Range(1, 3));
             reels[i].spin = false;
             slot_outcome_.Add(reels[i].SetReelOutcome());
+            AudioManager.instance_.PlayReelStopSound();
         }
         //allows the machine to be started again
         startSpin = false;
