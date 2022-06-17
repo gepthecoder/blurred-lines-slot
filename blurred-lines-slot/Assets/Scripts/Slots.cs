@@ -314,7 +314,7 @@ public class Slots : MonoBehaviour
 
                 foreach (var symbol in stacked_symbols[i])
                 {
-                    if (symbol.symbol_id == symbol_id)
+                    if (symbol.symbol_id == symbol_id || symbol.symbol_id == wild_index)
                     {
                         total_ways *= symbol.occurences;
                         i_reel++;
@@ -469,7 +469,16 @@ public class Slots : MonoBehaviour
             for (int i = 0; i < all_symbol_count; i++)
             {
                 int random_symbol_index = GetRandomWeightedIndex(frequency_table);
-                random_symbols.Add(all_symbols_[random_symbol_index]);
+                // TODO: ugly hack - refactor
+                Symbol selected_symbol = all_symbols_[random_symbol_index];
+                if (reel.id == 1) {
+                    if(selected_symbol._ID_ == (int)Enums.Symbol.Wild)
+                    {
+                        int random = Random.Range(1, 8);
+                        selected_symbol = all_symbols_[random];
+                    }
+                }
+                random_symbols.Add(selected_symbol);
             }
             reel.InitRandomSymbolsOnReel(random_symbols);
         }
@@ -485,7 +494,7 @@ public class Slots : MonoBehaviour
             weightSum += weights[i];
         }
 
-        // Step through all the possibilities, one by one, checking to see if each one is selected.
+        // Step through all the possibilities, one by one, checking to see if each one is selected.     
         int index = 0;
         int lastIndex = elementCount - 1;
         while (index < lastIndex)
@@ -502,6 +511,7 @@ public class Slots : MonoBehaviour
 
         // No other item was selected, so return very last index.
         return index;
+        
     }
 
 }
