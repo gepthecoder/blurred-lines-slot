@@ -231,7 +231,7 @@ public class Slots : MonoBehaviour
 
                 // animate winning text
                 int slot = Random.Range(0, display_slots.Count);
-                win_amount_texts_[slot].text = $"{winways.ways}Ways x {winways.streak} x {Enums.IdToSymbol(winways.win_symbol_id)}";
+                win_amount_texts_[display_slots[slot]].text = $"{winways.ways}Ways x {winways.streak} x {Enums.IdToSymbol(winways.win_symbol_id)}";
                 display_slots.RemoveAt(slot);
 
                 // animate winning (visible) symbols till streak over
@@ -241,7 +241,7 @@ public class Slots : MonoBehaviour
 
                     foreach (Transform symbol in reel.reel_symbol_transforms_)
                     {
-                        if (symbol.name == Enums.SymbolToString(Enums.IdToSymbol(winways.win_symbol_id)))
+                        if ((symbol.name == Enums.SymbolToString(Enums.IdToSymbol(winways.win_symbol_id))) || (symbol.name == Enums.SymbolToString(Enums.Symbol.Wild) && winways.wilds))
                         {
                             Animator anime = symbol.GetComponentInChildren<Animator>();
                             if (anime) { anime.SetBool("win", true); }
