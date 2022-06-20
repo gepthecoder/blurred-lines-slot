@@ -63,6 +63,8 @@ public class Slots : MonoBehaviour
         }
     }
 
+    #region Normal Spins
+
     public void TryStartSpinning() // spin callback
     {
         Debug.Log("TryStartSpinning");
@@ -85,8 +87,122 @@ public class Slots : MonoBehaviour
             AudioManager.instance_.PlaySpinSound();
 
             StartCoroutine(Spinning(OnNormalSpinStopped));
-        }       
+        }
     }
+
+    IEnumerator Spinning(System.Action<string> onCompleted)
+    {
+        foreach (Reel spinner in reels)
+        {
+            //tells each reel to start spinning
+            spinner.spin = true;
+        }
+
+        SetupSlotSymbolsOnReels();
+
+        for (int i = 0; i < reels.Length; i++)
+        {
+            //allow the reel to spin for a random amount of time then stop
+            yield return new WaitForSeconds(is_turbo_spin_enabled_ ? Random.Range(.5f, .7f) : Random.Range(1, 3));
+            reels[i].spin = false;
+            slot_outcome_.Add(reels[i].SetReelOutcome());
+            AudioManager.instance_.PlayReelStopSound();
+        }
+
+        onCompleted(null);
+    }
+
+    private void OnNormalSpinStopped(string errorMessage) // normal spin flow
+    {
+        if (errorMessage != null)
+        {
+            Debug.LogError("Was not able to execute spin: " + errorMessage);
+        }
+
+        // determine outcome and winning ways
+        List<Structs.WinningCombination> winning_ways = GetWinningWays();
+
+        // TODO: calculate payout
+
+        // present win or go to waiting state
+        bool WINNER = winning_ways.Count > 0;
+
+        if (WINNER)
+        {
+            current_slot_state_ = SlotState.Winner;
+            Debug.Log("current_slot_state_: SlotState.Winner");
+
+            present_win_seq_.SetActive(true);
+            List<int> display_slots = new List<int>() { 0, 1, 2 };
+
+            AudioManager.instance_.PlayWinSound(true);
+
+            foreach (var winways in winning_ways)
+            {
+                Debug.Log("<color=yellow>W</color><color=red>I</color><color=brown>N</color><color=green>N</color><color=cyan>E</color><color=GRAY>R</color> ----> " +
+                    $"SYMBOL {winways.win_symbol_id} PAYS {winways.ways}WAYS x {winways.streak} x Symbol Amount");
+
+                // animate winning text
+                int slot = Random.Range(0, display_slots.Count);
+                win_amount_texts_[display_slots[slot]].text = $"{winways.ways}Ways x {winways.streak} x {Enums.IdToSymbol(winways.win_symbol_id)}";
+                display_slots.RemoveAt(slot);
+
+                // animate winning (visible) symbols till streak over
+                foreach (Reel reel in reels)
+                {
+                    if (reel.id > winways.streak) { break; }
+
+                    foreach (Transform symbol in reel.reel_symbol_transforms_)
+                    {
+                        if ((symbol.name == Enums.SymbolToString(Enums.IdToSymbol(winways.win_symbol_id))) || (symbol.name == Enums.SymbolToString(Enums.Symbol.Wild) && winways.wilds))
+                        {
+                            Animator anime = symbol.GetComponentInChildren<Animator>();
+                            if (anime) { anime.SetBool("win", true); }
+                        }
+                    }
+                }
+
+            }
+
+            StartCoroutine(DelayNextSpin(OnDelayedSpinFinnished));
+        }
+        else
+        {
+            //allows the machine to be started again
+            startSpin = false;
+            spin_button_.interactable = true;
+
+            current_slot_state_ = SlotState.Waiting;
+            Debug.Log("current_slot_state_: SlotState.Waiting");
+        }
+    }
+
+    private IEnumerator DelayNextSpin(System.Action<string> onCompleted)
+    {
+        // TODO: maybe start seq of all wins
+        yield return new WaitForSeconds(2f);
+        onCompleted(null);
+    }
+
+    private void OnDelayedSpinFinnished(string errorMessage)
+    {
+        if (errorMessage != null)
+        {
+            Debug.LogError("Was not able to finalize reward: " + errorMessage);
+        }
+
+        //allows the machine to be started again
+        startSpin = false;
+        spin_button_.interactable = true;
+
+        current_slot_state_ = SlotState.Waiting;
+        Debug.Log("current_slot_state_: SlotState.Waiting");
+    }
+
+
+    #endregion
+
+    #region Auto Spins
 
     public void TryStartAutoSpins(int num_spins, out bool success)
     {
@@ -103,28 +219,9 @@ public class Slots : MonoBehaviour
 
             AutoSpins(num_spins);
         }
-        else { 
+        else
+        {
             success = false;
-        }
-    }
-
-    private void ClearSlotScreenVfx()
-    {
-        // clear win screen
-        present_win_seq_.SetActive(false);
-        foreach (Reel reel in reels)
-        {
-            foreach (Transform symbol in reel.reel_symbol_transforms_)
-            {
-                Animator anime = symbol.GetComponentInChildren<Animator>();
-                if (anime) { anime.SetBool("win", false); }
-                anime.transform.localRotation = Quaternion.Euler(symbol.localRotation.x, symbol.localRotation.y, 0);
-            }
-        }
-
-        foreach (Text txt in win_amount_texts_)
-        {
-            txt.text = "";
         }
     }
 
@@ -148,7 +245,33 @@ public class Slots : MonoBehaviour
         StartCoroutine(AutoSpinning(OnSpinFinnished));
     }
 
+
     // TODO: DRY violation (normal-auto spin almost the same..)
+    private IEnumerator AutoSpinning(System.Action<string> onCompleted)
+    {
+        foreach (Reel spinner in reels)
+        {
+            //tells each reel to start spinning
+            spinner.spin = true;
+        }
+
+        SetupSlotSymbolsOnReels();
+
+        for (int i = 0; i < reels.Length; i++)
+        {
+            //allow the reel to spin for a random amount of time then stop
+            yield return new WaitForSeconds(is_turbo_spin_enabled_ ? Random.Range(.5f, .7f) : Random.Range(1, 3));
+            reels[i].spin = false;
+            slot_outcome_.Add(reels[i].SetReelOutcome());
+            AudioManager.instance_.PlayReelStopSound();
+        }
+        //allows the machine to be started again
+        startSpin = false;
+
+        yield return new WaitForSeconds(1f);
+        onCompleted(null);
+    }
+
     private IEnumerator DelayNextAutoSpin(System.Action<string> onCompleted, float delay)
     {
         // TODO: maybe start seq of all wins
@@ -261,28 +384,28 @@ public class Slots : MonoBehaviour
         is_last_auto_spin_forced_ = force;
     }
 
-    IEnumerator Spinning(System.Action<string> onCompleted)
+    #endregion
+
+
+    private void ClearSlotScreenVfx()
     {
-        foreach (Reel spinner in reels)
+        // clear win screen
+        present_win_seq_.SetActive(false);
+        foreach (Reel reel in reels)
         {
-            //tells each reel to start spinning
-            spinner.spin = true;
+            foreach (Transform symbol in reel.reel_symbol_transforms_)
+            {
+                Animator anime = symbol.GetComponentInChildren<Animator>();
+                if (anime) { anime.SetBool("win", false); }
+                anime.transform.localRotation = Quaternion.Euler(symbol.localRotation.x, symbol.localRotation.y, 0);
+            }
         }
 
-        SetupSlotSymbolsOnReels();
-
-        for (int i = 0; i < reels.Length; i++)
+        foreach (Text txt in win_amount_texts_)
         {
-            //allow the reel to spin for a random amount of time then stop
-            yield return new WaitForSeconds(is_turbo_spin_enabled_ ? Random.Range(.5f, .7f) : Random.Range(1,3));
-            reels[i].spin = false;
-            slot_outcome_.Add(reels[i].SetReelOutcome());
-            AudioManager.instance_.PlayReelStopSound();
+            txt.text = "";
         }
-
-        onCompleted(null);
     }
-
 
     protected List<Structs.WinningCombination> GetWinningWays()
     {
@@ -359,118 +482,6 @@ public class Slots : MonoBehaviour
         }
 
         return winning_ways;
-    }
-
-    private IEnumerator DelayNextSpin(System.Action<string> onCompleted)
-    {
-        // TODO: maybe start seq of all wins
-        yield return new WaitForSeconds(2f);
-        onCompleted(null);
-    }
-
-    private void OnDelayedSpinFinnished(string errorMessage)
-    {
-        if (errorMessage != null)
-        {
-            Debug.LogError("Was not able to finalize reward: " + errorMessage);
-        }
-
-        //allows the machine to be started again
-        startSpin = false;
-        spin_button_.interactable = true;
-
-        current_slot_state_ = SlotState.Waiting;
-        Debug.Log("current_slot_state_: SlotState.Waiting");
-    }
-
-    private void OnNormalSpinStopped(string errorMessage) // normal spin flow
-    {
-        if (errorMessage != null)
-        {
-            Debug.LogError("Was not able to execute spin: " + errorMessage);
-        }
-
-        // determine outcome and winning ways
-        List<Structs.WinningCombination> winning_ways = GetWinningWays();
-
-        // TODO: calculate payout
-
-        // present win or go to waiting state
-        bool WINNER = winning_ways.Count > 0;
-
-        if (WINNER)
-        {
-            current_slot_state_ = SlotState.Winner;
-            Debug.Log("current_slot_state_: SlotState.Winner");
-
-            present_win_seq_.SetActive(true);
-            List<int> display_slots = new List<int>() { 0, 1, 2 };
-
-            AudioManager.instance_.PlayWinSound(true);
-
-            foreach (var winways in winning_ways)
-            {
-                Debug.Log("<color=yellow>W</color><color=red>I</color><color=brown>N</color><color=green>N</color><color=cyan>E</color><color=GRAY>R</color> ----> " +
-                    $"SYMBOL {winways.win_symbol_id} PAYS {winways.ways}WAYS x {winways.streak} x Symbol Amount");
-
-                // animate winning text
-                int slot = Random.Range(0, display_slots.Count);
-                win_amount_texts_[display_slots[slot]].text = $"{winways.ways}Ways x {winways.streak} x {Enums.IdToSymbol(winways.win_symbol_id)}";
-                display_slots.RemoveAt(slot);
-
-                // animate winning (visible) symbols till streak over
-                foreach(Reel reel in reels)
-                {
-                    if(reel.id > winways.streak) { break; }
-
-                    foreach (Transform symbol in reel.reel_symbol_transforms_)
-                    {
-                        if((symbol.name == Enums.SymbolToString(Enums.IdToSymbol(winways.win_symbol_id))) || (symbol.name == Enums.SymbolToString(Enums.Symbol.Wild) && winways.wilds))
-                        {
-                            Animator anime = symbol.GetComponentInChildren<Animator>();
-                            if (anime) { anime.SetBool("win", true); }
-                        }
-                    }
-                }
-
-            }
-
-            StartCoroutine(DelayNextSpin(OnDelayedSpinFinnished));
-        }
-        else
-        {
-            //allows the machine to be started again
-            startSpin = false;
-            spin_button_.interactable = true;
-
-            current_slot_state_ = SlotState.Waiting;
-            Debug.Log("current_slot_state_: SlotState.Waiting");
-        }
-    }
-
-    private IEnumerator AutoSpinning(System.Action<string> onCompleted)
-    {
-        foreach (Reel spinner in reels)
-        {
-            //tells each reel to start spinning
-            spinner.spin = true;
-        }
-
-        SetupSlotSymbolsOnReels();
-
-        for (int i = 0; i < reels.Length; i++)
-        {
-            //allow the reel to spin for a random amount of time then stop
-            yield return new WaitForSeconds(is_turbo_spin_enabled_ ? Random.Range(.5f, .7f) : Random.Range(1, 3));
-            reels[i].spin = false;
-            slot_outcome_.Add(reels[i].SetReelOutcome());
-            AudioManager.instance_.PlayReelStopSound();
-        }
-        //allows the machine to be started again
-        startSpin = false;
-
-        yield return new WaitForSeconds(1f);
-        onCompleted(null);
     }
 
     private void SetupSlotSymbolsOnReels()
